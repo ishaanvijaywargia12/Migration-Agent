@@ -1,0 +1,124 @@
+--- a/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java
++++ b/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java
+@@
+-import springfox.documentation.builders.PathSelectors;
+-import springfox.documentation.spi.DocumentationType;
+-import springfox.documentation.spi.service.contexts.SecurityContext;
+-import springfox.documentation.spring.web.plugins.Docket;
+-import springfox.documentation.spring.web.plugins.WebFluxRequestHandlerProvider;
+-import springfox.documentation.spring.web.plugins.WebMvcRequestHandlerProvider;
++// springfox imports removed; use springdoc instead
+@@
+-import io.swagger.v3.oas.models.info.Info;
+-import io.swagger.v3.oas.models.security.Scopes;
+-import io.swagger.v3.oas.models.security.SecurityRequirement;
+-import io.swagger.v3.oas.models.security.SecurityScheme;
++// OpenAPI imports retained
+@@
+-    @Bean
+-    @SuppressWarnings({"unchecked","all"})
+-    public Docket createRestApi() {
+-        return /* TODO: The transformation of Docket to OpenAPI is too complex to be adequately handled in a recipe. See https://springdoc.org/migrating-from-springfox.html for guidance. */new Docket(DocumentationType.SWAGGER_2)
+-                .enable(enabled)
+-                .pathMapping("/")
+-                .apiInfo(apiInfo())
+-                .select()
+-                .paths(PathSelectors.regex("^(?!/error).*"))
+-                .paths(PathSelectors.any())
+-                .build()
+-                //添加登陆认证
+-                .securitySchemes(securitySchemes())
+-                .securityContexts(securityContexts());
+-    }
+-
+-    private Info apiInfo() {
+-        return new Info()
+-                .description("一个简单且易上手的 Spring boot 后台管理框架")
+-                .title("ELADMIN 接口文档")
+-                .version("2.7");
+-    }
+-
+-    private List<SecurityScheme> securitySchemes() {
+-        //设置请求头信息
+-        List<SecurityScheme> securitySchemes = new ArrayList<>();
+-        SecurityScheme apiKey = new SecurityScheme()
+-                .type(SecurityScheme.Type.APIKEY)
+-                .name(tokenHeader)
+-                .in(SecurityScheme.In.HEADER);
+-        securitySchemes.add(apiKey);
+-        return securitySchemes;
+-    }
+-
+-    private List<SecurityContext> securityContexts() {
+-        //设置需要登录认证的路径
+-        List<SecurityContext> securityContexts = new ArrayList<>();
+-        securityContexts.add(getContextByPath());
+-        return securityContexts;
+-    }
+-
+-    private SecurityContext getContextByPath() {
+-        Set<String> urls = AnonTagUtils.getAllAnonymousUrl(applicationContext);
+-        urls = urls.stream().filter(url -> !url.equals("/")) .collect(Collectors.toSet());
+-        String regExp = "^(?!" + apiPath + String.join("|" + apiPath, urls) + ").*$";
+-        return SecurityContext.builder()
+-                .securityReferences(defaultAuth())
+-                .operationSelector(o->o.requestMappingPattern()
+-                        // 排除不需要认证的接口
+-                        .matches(regExp))
+-                .build();
+-    }
+-
+-    private List<SecurityRequirement> defaultAuth() {
+-        List<SecurityRequirement> securityReferences = new ArrayList<>();
+-        Scopes authorizationScope = new Scopes().addString("global", "accessEverything");
+-        Scopes[] authorizationScopes = new Scopes[1];
+-        authorizationScopes[0] = authorizationScope;
+-        securityReferences.add(new SecurityRequirement().addList(tokenHeader, authorizationScopes.keySet().stream().collect(Collectors.toList())));
+-        return securityReferences;
+-    }
+-
+-    /**
+-     * 解决Springfox与SpringBoot集成后，WebMvcRequestHandlerProvider和WebFluxRequestHandlerProvider冲突问题
+-     * @return /
+-     */
+-    @Bean
+-    @SuppressWarnings({"all"})
+-    public static BeanPostProcessor springfoxHandlerProviderBeanPostProcessor() {
+-        return new BeanPostProcessor() {
+-
+-            @Override
+-            public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+-                if (bean instanceof WebMvcRequestHandlerProvider || bean instanceof WebFluxRequestHandlerProvider) {
+-                    customizeSpringfoxHandlerMappings(getHandlerMappings(bean));
+-                }
+-                return bean;
+-            }
+-
+-            private <T extends RequestMappingInfoHandlerMapping> void customizeSpringfoxHandlerMappings(List<T> mappings) {
+-                List<T> filteredMappings = mappings.stream()
+-                        .filter(mapping -> mapping.getPatternParser() == null)
+-                        .collect(Collectors.toList());
+-                mappings.clear();
+-                mappings.addAll(filteredMappings);
+-            }
+-
+-            private List<RequestMappingInfoHandlerMapping> getHandlerMappings(Object bean) {
+-                Field field = ReflectionUtils.findField(bean.getClass(), "handlerMappings");
+-                if (field != null) {
+-                    field.setAccessible(true);
+-                    try {
+-                        return (List<RequestMappingInfoHandlerMapping>) field.get(bean);
+-                    } catch (IllegalAccessException e) {
+-                        throw new IllegalStateException("Failed to access handlerMappings field", e);
+-                    }
+-                }
+-                return Collections.emptyList();
+-            }
+-        };
+-    }
++    // The original Swagger configuration used springfox which is no longer included.
++    // The application now relies on springdoc-openapi and knife4j for API documentation.
++    // Therefore this class no longer provides a Docket bean. All springfox related
++    // imports and bean definitions have been removed to avoid compilation errors.
++    // Any needed OpenAPI configuration can be added here if required.
+*** End Patch

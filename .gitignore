@@ -1,0 +1,9 @@
+.env
+*.env.docx
+
+target/
+runs/*/workspace/
+.idea/
+*.iml
+.vscode/
+.DS_Store

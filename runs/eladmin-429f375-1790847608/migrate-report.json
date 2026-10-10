@@ -1,0 +1,636 @@
+{
+  "repoUrl" : "https://github.com/elunez/eladmin.git",
+  "commit" : "429f375f8274023ee55e94f01f334777415001d8",
+  "recipePluginVersion" : "6.46.1",
+  "recipeArtifactCoordinates" : "org.openrewrite.recipe:rewrite-spring:6.37.1",
+  "activeRecipe" : "org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_5",
+  "beforeJdkMajorVersion" : 8,
+  "beforeBuild" : {
+    "compiled" : true,
+    "testsRan" : false,
+    "testsTotal" : 0,
+    "testsFailed" : 0,
+    "testsErrored" : 0,
+    "testsSkipped" : 0,
+    "failures" : [ ],
+    "wallClock" : 8.629009000,
+    "mavenExitCode" : 0
+  },
+  "recipeExitCode" : 0,
+  "diff" : {
+    "changedFiles" : [ {
+      "path" : ".sandbox-live-output.log",
+      "changeType" : "ADDED"
+    }, {
+      "path" : "eladmin-common/pom.xml",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/aspect/LimitAspect.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/base/BaseDTO.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/base/BaseEntity.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/config/RedissonConfiguration.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/config/RemoveDruidAdConfig.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/config/webConfig/MultipartConfig.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerDataConfig.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/exception/handler/GlobalExceptionHandler.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/utils/BigDecimalUtils.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/utils/FileUtil.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/utils/QueryHelp.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/utils/RedisUtils.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/utils/RequestHolder.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/utils/SecurityUtils.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-common/src/main/java/me/zhengjie/utils/StringUtils.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-generator/pom.xml",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-generator/src/main/java/me/zhengjie/domain/ColumnInfo.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-generator/src/main/java/me/zhengjie/domain/GenConfig.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-generator/src/main/java/me/zhengjie/domain/vo/TableInfo.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-generator/src/main/java/me/zhengjie/rest/GenConfigController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-generator/src/main/java/me/zhengjie/rest/GeneratorController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-generator/src/main/java/me/zhengjie/service/GeneratorService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-generator/src/main/java/me/zhengjie/service/impl/GeneratorServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-logging/pom.xml",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-logging/src/main/java/me/zhengjie/aspect/LogAspect.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-logging/src/main/java/me/zhengjie/domain/SysLog.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-logging/src/main/java/me/zhengjie/repository/LogRepository.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-logging/src/main/java/me/zhengjie/rest/SysLogController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-logging/src/main/java/me/zhengjie/service/SysLogService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-logging/src/main/java/me/zhengjie/service/dto/SysLogErrorDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-logging/src/main/java/me/zhengjie/service/dto/SysLogQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-logging/src/main/java/me/zhengjie/service/dto/SysLogSmallDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-logging/src/main/java/me/zhengjie/service/impl/SysLogServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/pom.xml",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/AppRun.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/domain/App.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/domain/Database.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/domain/Deploy.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/domain/DeployHistory.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/domain/ServerDeploy.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/rest/AppController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/rest/DatabaseController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/rest/DeployController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/rest/DeployHistoryController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/rest/ServerDeployController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/AppService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/DatabaseService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/DeployHistoryService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/DeployService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/ServerDeployService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/dto/AppDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/dto/AppQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/dto/DatabaseDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/dto/DatabaseQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/dto/DeployDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/dto/DeployHistoryDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/dto/DeployHistoryQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/dto/DeployQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/dto/ServerDeployDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/dto/ServerDeployQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/impl/AppServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/impl/DatabaseServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/impl/DeployHistoryServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/impl/DeployServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/service/impl/ServerDeployServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/util/SqlUtils.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/maint/websocket/WebSocketServer.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/quartz/config/QuartzConfig.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/quartz/domain/QuartzJob.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/quartz/domain/QuartzLog.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/quartz/rest/QuartzJobController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/quartz/service/QuartzJobService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/quartz/service/dto/JobQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/quartz/service/impl/QuartzJobServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/quartz/utils/QuartzManage.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/security/config/SpringSecurityConfig.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/security/rest/AuthController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/security/rest/OnlineController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/security/security/JwtAccessDeniedHandler.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/security/security/JwtAuthenticationEntryPoint.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/security/security/TokenFilter.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/security/security/TokenProvider.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/security/service/OnlineUserService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/security/service/UserCacheManager.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/security/service/dto/AuthUserDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/security/service/dto/AuthorityDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/security/service/dto/JwtUserDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/security/service/dto/OnlineUserDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/domain/Dept.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/domain/Dict.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/domain/DictDetail.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/domain/Job.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/domain/Menu.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/domain/Role.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/domain/User.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/domain/vo/MenuMetaVo.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/domain/vo/MenuVo.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/domain/vo/UserPassVo.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/repository/DeptRepository.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/repository/MenuRepository.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/repository/RoleRepository.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/repository/UserRepository.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/rest/DeptController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/rest/DictController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/rest/DictDetailController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/rest/JobController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/rest/LimitController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/rest/MenuController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/rest/MonitorController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/rest/RoleController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/rest/UserController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/rest/VerifyController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/DeptService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/DictService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/JobService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/MenuService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/RoleService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/UserService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/DeptDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/DeptQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/DeptSmallDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/DictDetailDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/DictDetailQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/DictDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/DictQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/DictSmallDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/JobDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/JobQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/JobSmallDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/MenuDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/MenuQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/RoleDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/RoleQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/RoleSmallDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/UserDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/dto/UserQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/impl/DeptServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/impl/DictServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/impl/JobServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/impl/MenuServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/impl/RoleServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/java/me/zhengjie/modules/system/service/impl/UserServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-system/src/main/resources/config/application.yml",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/pom.xml",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/domain/AlipayConfig.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/domain/EmailConfig.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/domain/LocalStorage.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/domain/QiniuConfig.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/domain/QiniuContent.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/domain/vo/EmailVo.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/domain/vo/TradeVo.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/rest/AliPayController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/rest/EmailController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/rest/LocalStorageController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/rest/QiniuController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/service/LocalStorageService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/service/QiNiuService.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/service/dto/LocalStorageDto.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/service/dto/LocalStorageQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/service/dto/QiniuQueryCriteria.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/service/impl/LocalStorageServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/service/impl/QiNiuServiceImpl.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "eladmin-tools/src/main/java/me/zhengjie/utils/AlipayUtils.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "pom.xml",
+      "changeType" : "MODIFIED"
+    } ]
+  },
+  "afterJdkMajorVersion" : 17,
+  "afterRewriteBuild" : {
+    "compiled" : false,
+    "testsRan" : false,
+    "testsTotal" : 0,
+    "testsFailed" : 0,
+    "testsErrored" : 0,
+    "testsSkipped" : 0,
+    "failures" : [ {
+      "category" : "UNKNOWN",
+      "file" : "/workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java",
+      "line" : 71,
+      "errorType" : "compile error",
+      "message" : "incompatible types: io.swagger.v3.oas.models.info.Info cannot be converted to springfox.documentation.service.ApiInfo",
+      "rawExcerpt" : "[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[71,33] incompatible types: io.swagger.v3.oas.models.info.Info cannot be converted to springfox.documentation.service.ApiInfo"
+    }, {
+      "category" : "UNKNOWN",
+      "file" : "/workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java",
+      "line" : 111,
+      "errorType" : "compile error",
+      "message" : "incompatible types: java.util.List<io.swagger.v3.oas.models.security.SecurityRequirement> cannot be converted to java.util.List<springfox.documentation.service.SecurityReference>",
+      "rawExcerpt" : "[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[111,48] incompatible types: java.util.List<io.swagger.v3.oas.models.security.SecurityRequirement> cannot be converted to java.util.List<springfox.documentation.service.SecurityReference>"
+    }, {
+      "category" : "UNKNOWN",
+      "file" : "/workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java",
+      "line" : 123,
+      "errorType" : "compile error",
+      "message" : "cannot find symbol",
+      "rawExcerpt" : "[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[123,98] cannot find symbol"
+    }, {
+      "category" : "UNKNOWN",
+      "file" : "/workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java",
+      "line" : 71,
+      "errorType" : "compile error",
+      "message" : "incompatible types: io.swagger.v3.oas.models.info.Info cannot be converted to springfox.documentation.service.ApiInfo",
+      "rawExcerpt" : "[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[71,33] incompatible types: io.swagger.v3.oas.models.info.Info cannot be converted to springfox.documentation.service.ApiInfo"
+    }, {
+      "category" : "UNKNOWN",
+      "file" : "/workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java",
+      "line" : 111,
+      "errorType" : "compile error",
+      "message" : "incompatible types: java.util.List<io.swagger.v3.oas.models.security.SecurityRequirement> cannot be converted to java.util.List<springfox.documentation.service.SecurityReference>",
+      "rawExcerpt" : "[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[111,48] incompatible types: java.util.List<io.swagger.v3.oas.models.security.SecurityRequirement> cannot be converted to java.util.List<springfox.documentation.service.SecurityReference>"
+    }, {
+      "category" : "UNKNOWN",
+      "file" : "/workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java",
+      "line" : 123,
+      "errorType" : "compile error",
+      "message" : "cannot find symbol",
+      "rawExcerpt" : "[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[123,98] cannot find symbol\n[ERROR]   symbol:   method keySet()\n[ERROR]   location: variable authorizationScopes of type io.swagger.v3.oas.models.security.Scopes[]\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException\n[ERROR] \n[ERROR] After correcting the problems, you can resume the build with the command\n[ERROR]   mvn <args> -rf :eladmin-common"
+    } ],
+    "wallClock" : 2.533026000,
+    "mavenExitCode" : 1
+  },
+  "agentLoopUsed" : true,
+  "cascadeProviders" : [ "groq", "openrouter" ],
+  "agentIterationBudget" : 10,
+  "finalBuild" : {
+    "compiled" : false,
+    "testsRan" : false,
+    "testsTotal" : 0,
+    "testsFailed" : 0,
+    "testsErrored" : 0,
+    "testsSkipped" : 0,
+    "failures" : [ {
+      "category" : "UNKNOWN",
+      "file" : "/workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java",
+      "line" : 71,
+      "errorType" : "compile error",
+      "message" : "incompatible types: io.swagger.v3.oas.models.info.Info cannot be converted to springfox.documentation.service.ApiInfo",
+      "rawExcerpt" : "[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[71,33] incompatible types: io.swagger.v3.oas.models.info.Info cannot be converted to springfox.documentation.service.ApiInfo"
+    }, {
+      "category" : "UNKNOWN",
+      "file" : "/workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java",
+      "line" : 111,
+      "errorType" : "compile error",
+      "message" : "incompatible types: java.util.List<io.swagger.v3.oas.models.security.SecurityRequirement> cannot be converted to java.util.List<springfox.documentation.service.SecurityReference>",
+      "rawExcerpt" : "[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[111,48] incompatible types: java.util.List<io.swagger.v3.oas.models.security.SecurityRequirement> cannot be converted to java.util.List<springfox.documentation.service.SecurityReference>"
+    }, {
+      "category" : "UNKNOWN",
+      "file" : "/workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java",
+      "line" : 123,
+      "errorType" : "compile error",
+      "message" : "cannot find symbol",
+      "rawExcerpt" : "[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[123,98] cannot find symbol"
+    }, {
+      "category" : "UNKNOWN",
+      "file" : "/workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java",
+      "line" : 71,
+      "errorType" : "compile error",
+      "message" : "incompatible types: io.swagger.v3.oas.models.info.Info cannot be converted to springfox.documentation.service.ApiInfo",
+      "rawExcerpt" : "[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[71,33] incompatible types: io.swagger.v3.oas.models.info.Info cannot be converted to springfox.documentation.service.ApiInfo"
+    }, {
+      "category" : "UNKNOWN",
+      "file" : "/workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java",
+      "line" : 111,
+      "errorType" : "compile error",
+      "message" : "incompatible types: java.util.List<io.swagger.v3.oas.models.security.SecurityRequirement> cannot be converted to java.util.List<springfox.documentation.service.SecurityReference>",
+      "rawExcerpt" : "[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[111,48] incompatible types: java.util.List<io.swagger.v3.oas.models.security.SecurityRequirement> cannot be converted to java.util.List<springfox.documentation.service.SecurityReference>"
+    }, {
+      "category" : "UNKNOWN",
+      "file" : "/workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java",
+      "line" : 123,
+      "errorType" : "compile error",
+      "message" : "cannot find symbol",
+      "rawExcerpt" : "[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[123,98] cannot find symbol\n[ERROR]   symbol:   method keySet()\n[ERROR]   location: variable authorizationScopes of type io.swagger.v3.oas.models.security.Scopes[]\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException\n[ERROR] \n[ERROR] After correcting the problems, you can resume the build with the command\n[ERROR]   mvn <args> -rf :eladmin-common"
+    } ],
+    "wallClock" : 2.533026000,
+    "mavenExitCode" : 1
+  },
+  "postSuccessViolations" : [ ],
+  "startedAt" : "2026-10-01T09:56:12.860466Z"
+}

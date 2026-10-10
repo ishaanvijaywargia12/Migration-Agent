@@ -1,0 +1,74 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] ELADMIN 后台管理                                                       [pom]
+[INFO] 公共模块                                                               [jar]
+[INFO] 日志模块                                                               [jar]
+[INFO] 代码生成模块                                                             [jar]
+[INFO] 工具模块                                                               [jar]
+[INFO] 核心模块                                                               [jar]
+[INFO] 
+[INFO] ------------------------< me.zhengjie:eladmin >-------------------------
+[INFO] Building ELADMIN 后台管理 2.7                                          [1/6]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] ---------------------< me.zhengjie:eladmin-common >---------------------
+[INFO] Building 公共模块 2.7                                                  [2/6]
+[INFO]   from eladmin-common/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ eladmin-common ---
+[INFO] skip non existing resourceDirectory /workspace/eladmin-common/src/main/resources
+[INFO] skip non existing resourceDirectory /workspace/eladmin-common/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ eladmin-common ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 57 source files with javac [debug parameters release 17] to target/classes
+[INFO] /workspace/eladmin-common/src/main/java/me/zhengjie/config/RedisConfiguration.java: Some input files use or override a deprecated API.
+[INFO] /workspace/eladmin-common/src/main/java/me/zhengjie/config/RedisConfiguration.java: Recompile with -Xlint:deprecation for details.
+[INFO] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java: Some input files use unchecked or unsafe operations.
+[INFO] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java: Recompile with -Xlint:unchecked for details.
+[INFO] Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[71,33] incompatible types: io.swagger.v3.oas.models.info.Info cannot be converted to springfox.documentation.service.ApiInfo
+[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[111,48] incompatible types: java.util.List<io.swagger.v3.oas.models.security.SecurityRequirement> cannot be converted to java.util.List<springfox.documentation.service.SecurityReference>
+[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[123,98] cannot find symbol
+  symbol:   method keySet()
+  location: variable authorizationScopes of type io.swagger.v3.oas.models.security.Scopes[]
+[INFO] 3 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for ELADMIN 后台管理 2.7:
+[INFO] 
+[INFO] ELADMIN 后台管理 ....................................... SUCCESS [  0.001 s]
+[INFO] 公共模块 ............................................... FAILURE [  1.966 s]
+[INFO] 日志模块 ............................................... SKIPPED
+[INFO] 代码生成模块 ............................................. SKIPPED
+[INFO] 工具模块 ............................................... SKIPPED
+[INFO] 核心模块 ............................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.137 s
+[INFO] Finished at: 2026-10-01T10:54:54Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.14.1:compile (default-compile) on project eladmin-common: Compilation failure: Compilation failure: 
+[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[71,33] incompatible types: io.swagger.v3.oas.models.info.Info cannot be converted to springfox.documentation.service.ApiInfo
+[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[111,48] incompatible types: java.util.List<io.swagger.v3.oas.models.security.SecurityRequirement> cannot be converted to java.util.List<springfox.documentation.service.SecurityReference>
+[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[123,98] cannot find symbol
+[ERROR]   symbol:   method keySet()
+[ERROR]   location: variable authorizationScopes of type io.swagger.v3.oas.models.security.Scopes[]
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :eladmin-common

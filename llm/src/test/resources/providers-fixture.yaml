@@ -1,0 +1,23 @@
+providers:
+  groq:
+    base_url: https://api.groq.com/openai/v1
+    api_key_env: GROQ_API_KEY
+    model: openai/gpt-oss-20b
+    rpm: 30
+    rpd: 1000
+    enabled: true
+  gemini:
+    base_url: https://generativelanguage.googleapis.com/v1beta/openai/
+    api_key_env: GEMINI_API_KEY
+    model: gemini-2.5-flash
+    rpm: 5
+    rpd: 100
+    enabled: false
+
+cascade_order: [groq, gemini]
+
+budgets:
+  per_run_requests: 60
+  per_run_tokens: 200000
+  per_day_requests: 500
+  per_day_tokens: 1000000

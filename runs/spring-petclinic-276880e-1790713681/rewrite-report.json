@@ -1,0 +1,105 @@
+{
+  "repoUrl" : "https://github.com/spring-projects/spring-petclinic.git",
+  "commit" : "276880edef4c3d1029865d19d6d28e982b9d4d01",
+  "recipePluginVersion" : "6.46.1",
+  "recipeArtifactCoordinates" : "org.openrewrite.recipe:rewrite-spring:6.37.1",
+  "activeRecipe" : "org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_5",
+  "beforeJdkMajorVersion" : 8,
+  "beforeBuild" : {
+    "compiled" : true,
+    "testsRan" : true,
+    "testsTotal" : 41,
+    "testsFailed" : 0,
+    "testsErrored" : 0,
+    "testsSkipped" : 1,
+    "failures" : [ ],
+    "wallClock" : 15.915411000,
+    "mavenExitCode" : 0
+  },
+  "recipeExitCode" : 0,
+  "diff" : {
+    "changedFiles" : [ {
+      "path" : ".github/workflows/maven-build.yml",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "build.gradle",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "gradle/wrapper/gradle-wrapper.jar",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "gradle/wrapper/gradle-wrapper.properties",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "gradlew",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "gradlew.bat",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "mvnw.cmd",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "pom.xml",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "src/main/java/org/springframework/samples/petclinic/model/Person.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "src/main/java/org/springframework/samples/petclinic/owner/PetType.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "src/main/java/org/springframework/samples/petclinic/vet/Specialty.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "src/main/java/org/springframework/samples/petclinic/vet/Vets.java",
+      "changeType" : "MODIFIED"
+    }, {
+      "path" : "src/test/java/org/springframework/samples/petclinic/model/ValidatorTests.java",
+      "changeType" : "MODIFIED"
+    } ]
+  },
+  "afterJdkMajorVersion" : 17,
+  "afterBuild" : {
+    "compiled" : true,
+    "testsRan" : true,
+    "testsTotal" : 41,
+    "testsFailed" : 0,
+    "testsErrored" : 0,
+    "testsSkipped" : 1,
+    "failures" : [ ],
+    "wallClock" : 225.032643000,
+    "mavenExitCode" : 0
+  },
+  "startedAt" : "2026-09-29T20:49:21.459672Z"
+}

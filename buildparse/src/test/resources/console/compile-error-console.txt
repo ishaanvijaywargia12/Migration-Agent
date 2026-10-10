@@ -1,0 +1,16 @@
+[INFO] Scanning for projects...
+[INFO] Building petclinic 3.0.0-SNAPSHOT
+[INFO] --- compiler:3.11.0:compile (default-compile) @ petclinic ---
+[INFO] Compiling 42 source files to /repo/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR :
+[INFO] -------------------------------------------------------------
+[ERROR] /repo/src/main/java/com/example/PetController.java:[15,8] package javax.persistence does not exist
+[ERROR] /repo/src/main/java/com/example/PetController.java:[42,12] cannot find symbol
+[ERROR]   symbol:   class Entity
+[ERROR]   location: class com.example.PetController
+[INFO] 2 errors
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------

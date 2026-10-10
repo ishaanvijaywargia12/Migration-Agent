@@ -1,0 +1,4 @@
+{"type":"model_call","ts":1790868167.265698000,"tier":0,"provider":"groq","model":"openai/gpt-oss-20b","tokensIn":766,"tokensOut":38,"latencyMs":588}
+{"type":"tool_call","ts":1790868167.282536000,"tool":"search_code","argsSummary":"{\"glob\":\"**/*.java\",\"pattern\":\"SwaggerConfig\"}","resultSummary":"No matches for pattern: SwaggerConfig"}
+{"type":"model_call","ts":1790868167.826333000,"tier":0,"provider":"groq","model":"openai/gpt-oss-20b","tokensIn":805,"tokensOut":34,"latencyMs":540}
+{"type":"tool_call","ts":1790868167.843350000,"tool":"search_code","argsSummary":"{\"glob\":\"**/*.java\",\"pattern\":\"@Configuration\"}","resultSummary":"No matches for pattern: @Configuration"}

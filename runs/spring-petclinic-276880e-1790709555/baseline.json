@@ -1,0 +1,16 @@
+{
+  "repoUrl" : "https://github.com/spring-projects/spring-petclinic.git",
+  "commitSha" : "276880edef4c3d1029865d19d6d28e982b9d4d01",
+  "jdkMajorVersion" : 8,
+  "startedAt" : "2026-09-29T19:22:27.137469Z",
+  "result" : {
+    "compiled" : true,
+    "testsRan" : true,
+    "testsTotal" : 41,
+    "testsFailed" : 0,
+    "testsErrored" : 0,
+    "testsSkipped" : 1,
+    "failures" : [ ],
+    "wallClock" : 187.952942000
+  }
+}

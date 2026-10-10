@@ -1,0 +1,298 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] ELADMIN 后台管理                                                       [pom]
+[INFO] 公共模块                                                               [jar]
+[INFO] 日志模块                                                               [jar]
+[INFO] 代码生成模块                                                             [jar]
+[INFO] 工具模块                                                               [jar]
+[INFO] 核心模块                                                               [jar]
+[INFO] 
+[INFO] ------------------------< me.zhengjie:eladmin >-------------------------
+[INFO] Building ELADMIN 后台管理 2.7                                          [1/6]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] ---------------------< me.zhengjie:eladmin-common >---------------------
+[INFO] Building 公共模块 2.7                                                  [2/6]
+[INFO]   from eladmin-common/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/jakarta/servlet/jakarta.servlet-api/6.0.0/jakarta.servlet-api-6.0.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/jakarta/servlet/jakarta.servlet-api/6.0.0/jakarta.servlet-api-6.0.0.pom (19 kB at 113 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-websocket/3.5.16/spring-boot-starter-websocket-3.5.16.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-websocket/3.5.16/spring-boot-starter-websocket-3.5.16.pom (2.5 kB at 50 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/spring-messaging/6.2.19/spring-messaging-6.2.19.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/spring-messaging/6.2.19/spring-messaging-6.2.19.pom (2.2 kB at 65 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/spring-websocket/6.2.19/spring-websocket-6.2.19.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/spring-websocket/6.2.19/spring-websocket-6.2.19.pom (2.4 kB at 23 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-security/3.5.16/spring-boot-starter-security-3.5.16.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-security/3.5.16/spring-boot-starter-security-3.5.16.pom (2.7 kB at 92 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-config/6.5.11/spring-security-config-6.5.11.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-config/6.5.11/spring-security-config-6.5.11.pom (2.8 kB at 98 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-core/6.5.11/spring-security-core-6.5.11.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-core/6.5.11/spring-security-core-6.5.11.pom (3.2 kB at 119 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-crypto/6.5.11/spring-security-crypto-6.5.11.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-crypto/6.5.11/spring-security-crypto-6.5.11.pom (2.1 kB at 60 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-web/6.5.11/spring-security-web-6.5.11.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-web/6.5.11/spring-security-web-6.5.11.pom (3.2 kB at 119 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-data-redis/3.5.16/spring-boot-starter-data-redis-3.5.16.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-data-redis/3.5.16/spring-boot-starter-data-redis-3.5.16.pom (2.5 kB at 81 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/lettuce/lettuce-core/6.6.0.RELEASE/lettuce-core-6.6.0.RELEASE.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/lettuce/lettuce-core/6.6.0.RELEASE/lettuce-core-6.6.0.RELEASE.pom (8.1 kB at 212 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/redis/clients/authentication/redis-authx-core/0.1.1-beta2/redis-authx-core-0.1.1-beta2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/redis/clients/authentication/redis-authx-core/0.1.1-beta2/redis-authx-core-0.1.1-beta2.pom (7.7 kB at 167 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-common/4.1.135.Final/netty-common-4.1.135.Final.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-common/4.1.135.Final/netty-common-4.1.135.Final.pom (10 kB at 265 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-parent/4.1.135.Final/netty-parent-4.1.135.Final.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-parent/4.1.135.Final/netty-parent-4.1.135.Final.pom (101 kB at 2.3 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-handler/4.1.135.Final/netty-handler-4.1.135.Final.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-handler/4.1.135.Final/netty-handler-4.1.135.Final.pom (5.4 kB at 59 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-resolver/4.1.135.Final/netty-resolver-4.1.135.Final.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-resolver/4.1.135.Final/netty-resolver-4.1.135.Final.pom (2.2 kB at 67 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-buffer/4.1.135.Final/netty-buffer-4.1.135.Final.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-buffer/4.1.135.Final/netty-buffer-4.1.135.Final.pom (2.2 kB at 66 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-transport/4.1.135.Final/netty-transport-4.1.135.Final.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-transport/4.1.135.Final/netty-transport-4.1.135.Final.pom (2.9 kB at 83 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-transport-native-unix-common/4.1.135.Final/netty-transport-native-unix-common-4.1.135.Final.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-transport-native-unix-common/4.1.135.Final/netty-transport-native-unix-common-4.1.135.Final.pom (34 kB at 936 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-codec/4.1.135.Final/netty-codec-4.1.135.Final.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-codec/4.1.135.Final/netty-codec-4.1.135.Final.pom (6.1 kB at 160 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/projectreactor/reactor-core/3.7.19/reactor-core-3.7.19.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/projectreactor/reactor-core/3.7.19/reactor-core-3.7.19.pom (2.1 kB at 61 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-redis/3.5.13/spring-data-redis-3.5.13.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-redis/3.5.13/spring-data-redis-3.5.13.pom (9.9 kB at 266 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-bom/4.1.121.Final/netty-bom-4.1.121.Final.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-bom/4.1.121.Final/netty-bom-4.1.121.Final.pom (14 kB at 443 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-keyvalue/3.5.13/spring-data-keyvalue-3.5.13.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-keyvalue/3.5.13/spring-data-keyvalue-3.5.13.pom (2.7 kB at 81 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/spring-oxm/6.2.19/spring-oxm-6.2.19.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/spring-oxm/6.2.19/spring-oxm-6.2.19.pom (2.4 kB at 74 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-resolver-dns/4.1.135.Final/netty-resolver-dns-4.1.135.Final.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-resolver-dns/4.1.135.Final/netty-resolver-dns-4.1.135.Final.pom (3.8 kB at 48 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-codec-dns/4.1.135.Final/netty-codec-dns-4.1.135.Final.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-codec-dns/4.1.135.Final/netty-codec-dns-4.1.135.Final.pom (3.3 kB at 100 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/reactivex/rxjava3/rxjava/3.1.12/rxjava-3.1.12.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/reactivex/rxjava3/rxjava/3.1.12/rxjava-3.1.12.pom (1.8 kB at 59 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.21.4/jackson-dataformat-yaml-2.21.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.21.4/jackson-dataformat-yaml-2.21.4.pom (3.0 kB at 80 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformats-text/2.21.4/jackson-dataformats-text-2.21.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformats-text/2.21.4/jackson-dataformats-text-2.21.4.pom (3.5 kB at 109 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springdoc/springdoc-openapi-starter-webmvc-ui/2.8.17/springdoc-openapi-starter-webmvc-ui-2.8.17.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springdoc/springdoc-openapi-starter-webmvc-ui/2.8.17/springdoc-openapi-starter-webmvc-ui-2.8.17.pom (2.0 kB at 66 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springdoc/springdoc-openapi/2.8.17/springdoc-openapi-2.8.17.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springdoc/springdoc-openapi/2.8.17/springdoc-openapi-2.8.17.pom (8.8 kB at 325 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-parent/3.5.13/spring-boot-starter-parent-3.5.13.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-parent/3.5.13/spring-boot-starter-parent-3.5.13.pom (13 kB at 391 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/3.5.13/spring-boot-dependencies-3.5.13.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/3.5.13/spring-boot-dependencies-3.5.13.pom (98 kB at 2.4 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-function-dependencies/4.2.2/spring-cloud-function-dependencies-4.2.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-function-dependencies/4.2.2/spring-cloud-function-dependencies-4.2.2.pom (6.8 kB at 179 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies-parent/4.2.1/spring-cloud-dependencies-parent-4.2.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies-parent/4.2.1/spring-cloud-dependencies-parent-4.2.1.pom (7.6 kB at 199 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/cassandra/java-driver-bom/4.19.2/java-driver-bom-4.19.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/cassandra/java-driver-bom/4.19.2/java-driver-bom-4.19.2.pom (5.5 kB at 160 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-bom/4.0.6/jaxb-bom-4.0.6.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-bom/4.0.6/jaxb-bom-4.0.6.pom (12 kB at 113 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/groovy/groovy-bom/4.0.30/groovy-bom-4.0.30.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/groovy/groovy-bom/4.0.30/groovy-bom-4.0.30.pom (27 kB at 682 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.21.2/jackson-bom-2.21.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.21.2/jackson-bom-2.21.2.pom (20 kB at 482 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/jetty/ee10/jetty-ee10-bom/12.0.33/jetty-ee10-bom-12.0.33.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/jetty/ee10/jetty-ee10-bom/12.0.33/jetty-ee10-bom-12.0.33.pom (9.6 kB at 213 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-bom/12.0.33/jetty-bom-12.0.33.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-bom/12.0.33/jetty-bom-12.0.33.pom (15 kB at 430 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/micrometer/micrometer-bom/1.15.10/micrometer-bom-1.15.10.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/micrometer/micrometer-bom/1.15.10/micrometer-bom-1.15.10.pom (8.6 kB at 233 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-bom/4.1.132.Final/netty-bom-4.1.132.Final.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-bom/4.1.132.Final/netty-bom-4.1.132.Final.pom (15 kB at 461 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/pulsar/pulsar-bom/4.0.9/pulsar-bom-4.0.9.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/pulsar/pulsar-bom/4.0.9/pulsar-bom-4.0.9.pom (25 kB at 700 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/projectreactor/reactor-bom/2024.0.16/reactor-bom-2024.0.16.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/projectreactor/reactor-bom/2024.0.16/reactor-bom-2024.0.16.pom (4.8 kB at 154 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/amqp/spring-amqp-bom/3.2.9/spring-amqp-bom-3.2.9.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/amqp/spring-amqp-bom/3.2.9/spring-amqp-bom-3.2.9.pom (3.9 kB at 129 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/batch/spring-batch-bom/5.2.5/spring-batch-bom-5.2.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/batch/spring-batch-bom/5.2.5/spring-batch-bom-5.2.5.pom (3.2 kB at 108 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-bom/2025.0.10/spring-data-bom-2025.0.10.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-bom/2025.0.10/spring-data-bom-2025.0.10.pom (5.5 kB at 64 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/integration/spring-integration-bom/6.5.8/spring-integration-bom-6.5.8.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/integration/spring-integration-bom/6.5.8/spring-integration-bom-6.5.8.pom (10 kB at 331 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/pulsar/spring-pulsar-bom/1.2.16/spring-pulsar-bom-1.2.16.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/pulsar/spring-pulsar-bom/1.2.16/spring-pulsar-bom-1.2.16.pom (2.9 kB at 94 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/restdocs/spring-restdocs-bom/3.0.5/spring-restdocs-bom-3.0.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/restdocs/spring-restdocs-bom/3.0.5/spring-restdocs-bom-3.0.5.pom (2.6 kB at 83 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-bom/6.5.9/spring-security-bom-6.5.9.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-bom/6.5.9/spring-security-bom-6.5.9.pom (5.3 kB at 222 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/session/spring-session-bom/3.5.5/spring-session-bom-3.5.5.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/session/spring-session-bom/3.5.5/spring-session-bom-3.5.5.pom (2.9 kB at 90 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/ws/spring-ws-bom/4.1.3/spring-ws-bom-4.1.3.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/ws/spring-ws-bom/4.1.3/spring-ws-bom-4.1.3.pom (2.3 kB at 62 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springdoc/springdoc-openapi-starter-webmvc-api/2.8.17/springdoc-openapi-starter-webmvc-api-2.8.17.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springdoc/springdoc-openapi-starter-webmvc-api/2.8.17/springdoc-openapi-starter-webmvc-api-2.8.17.pom (1.9 kB at 57 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springdoc/springdoc-openapi-starter-common/2.8.17/springdoc-openapi-starter-common-2.8.17.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springdoc/springdoc-openapi-starter-common/2.8.17/springdoc-openapi-starter-common-2.8.17.pom (5.1 kB at 175 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-core-jakarta/2.2.47/swagger-core-jakarta-2.2.47.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-core-jakarta/2.2.47/swagger-core-jakarta-2.2.47.pom (5.6 kB at 150 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-project-jakarta/2.2.47/swagger-project-jakarta-2.2.47.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-project-jakarta/2.2.47/swagger-project-jakarta-2.2.47.pom (22 kB at 614 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-annotations-jakarta/2.2.47/swagger-annotations-jakarta-2.2.47.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-annotations-jakarta/2.2.47/swagger-annotations-jakarta-2.2.47.pom (3.3 kB at 89 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-models-jakarta/2.2.47/swagger-models-jakarta-2.2.47.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-models-jakarta/2.2.47/swagger-models-jakarta-2.2.47.pom (3.4 kB at 36 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/swagger-ui/5.32.2/swagger-ui-5.32.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/swagger-ui/5.32.2/swagger-ui-5.32.2.pom (1.5 kB at 42 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.pom (7.9 kB at 262 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-annotations-jakarta/2.2.55/swagger-annotations-jakarta-2.2.55.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-annotations-jakarta/2.2.55/swagger-annotations-jakarta-2.2.55.pom (3.3 kB at 94 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-project-jakarta/2.2.55/swagger-project-jakarta-2.2.55.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-project-jakarta/2.2.55/swagger-project-jakarta-2.2.55.pom (22 kB at 716 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.pom (1.4 kB at 43 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.18.0/commons-codec-1.18.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.18.0/commons-codec-1.18.0.pom (18 kB at 509 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/79/commons-parent-79.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/79/commons-parent-79.pom (77 kB at 2.2 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/mapstruct/mapstruct/1.6.3/mapstruct-1.6.3.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/mapstruct/mapstruct/1.6.3/mapstruct-1.6.3.pom (1.7 kB at 56 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/mapstruct/mapstruct-parent/1.6.3/mapstruct-parent-1.6.3.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/mapstruct/mapstruct-parent/1.6.3/mapstruct-parent-1.6.3.pom (1.6 kB at 17 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.pom (3.2 kB at 87 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/jakarta/servlet/jakarta.servlet-api/6.0.0/jakarta.servlet-api-6.0.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/jakarta/servlet/jakarta.servlet-api/6.0.0/jakarta.servlet-api-6.0.0.jar (348 kB at 6.6 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-websocket/3.5.16/spring-boot-starter-websocket-3.5.16.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/spring-websocket/6.2.19/spring-websocket-6.2.19.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/spring-messaging/6.2.19/spring-messaging-6.2.19.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-security/3.5.16/spring-boot-starter-security-3.5.16.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-config/6.5.11/spring-security-config-6.5.11.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-security/3.5.16/spring-boot-starter-security-3.5.16.jar (4.7 kB at 64 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-core/6.5.11/spring-security-core-6.5.11.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/spring-websocket/6.2.19/spring-websocket-6.2.19.jar (445 kB at 5.8 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-crypto/6.5.11/spring-security-crypto-6.5.11.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-websocket/3.5.16/spring-boot-starter-websocket-3.5.16.jar (4.8 kB at 55 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-web/6.5.11/spring-security-web-6.5.11.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-crypto/6.5.11/spring-security-crypto-6.5.11.jar (105 kB at 980 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-data-redis/3.5.16/spring-boot-starter-data-redis-3.5.16.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/spring-messaging/6.2.19/spring-messaging-6.2.19.jar (619 kB at 4.5 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/lettuce/lettuce-core/6.6.0.RELEASE/lettuce-core-6.6.0.RELEASE.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-data-redis/3.5.16/spring-boot-starter-data-redis-3.5.16.jar (4.8 kB at 35 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/redis/clients/authentication/redis-authx-core/0.1.1-beta2/redis-authx-core-0.1.1-beta2.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/redis/clients/authentication/redis-authx-core/0.1.1-beta2/redis-authx-core-0.1.1-beta2.jar (18 kB at 96 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-common/4.1.135.Final/netty-common-4.1.135.Final.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-core/6.5.11/spring-security-core-6.5.11.jar (623 kB at 3.2 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-handler/4.1.135.Final/netty-handler-4.1.135.Final.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-web/6.5.11/spring-security-web-6.5.11.jar (1.1 MB at 4.6 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-transport-native-unix-common/4.1.135.Final/netty-transport-native-unix-common-4.1.135.Final.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/lettuce/lettuce-core/6.6.0.RELEASE/lettuce-core-6.6.0.RELEASE.jar (2.1 MB at 9.0 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-transport/4.1.135.Final/netty-transport-4.1.135.Final.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-common/4.1.135.Final/netty-common-4.1.135.Final.jar (739 kB at 2.9 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/projectreactor/reactor-core/3.7.19/reactor-core-3.7.19.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-transport-native-unix-common/4.1.135.Final/netty-transport-native-unix-common-4.1.135.Final.jar (44 kB at 169 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-redis/3.5.13/spring-data-redis-3.5.13.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-handler/4.1.135.Final/netty-handler-4.1.135.Final.jar (587 kB at 2.2 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-keyvalue/3.5.13/spring-data-keyvalue-3.5.13.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-transport/4.1.135.Final/netty-transport-4.1.135.Final.jar (522 kB at 1.4 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/spring-oxm/6.2.19/spring-oxm-6.2.19.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/spring-oxm/6.2.19/spring-oxm-6.2.19.jar (60 kB at 141 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-codec/4.1.135.Final/netty-codec-4.1.135.Final.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-config/6.5.11/spring-security-config-6.5.11.jar (2.1 MB at 4.9 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-buffer/4.1.135.Final/netty-buffer-4.1.135.Final.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-codec/4.1.135.Final/netty-codec-4.1.135.Final.jar (359 kB at 743 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-resolver/4.1.135.Final/netty-resolver-4.1.135.Final.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-redis/3.5.13/spring-data-redis-3.5.13.jar (2.3 MB at 4.3 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-resolver-dns/4.1.135.Final/netty-resolver-dns-4.1.135.Final.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-resolver/4.1.135.Final/netty-resolver-4.1.135.Final.jar (38 kB at 71 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/netty/netty-codec-dns/4.1.135.Final/netty-codec-dns-4.1.135.Final.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-codec-dns/4.1.135.Final/netty-codec-dns-4.1.135.Final.jar (68 kB at 122 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/reactivex/rxjava3/rxjava/3.1.12/rxjava-3.1.12.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-resolver-dns/4.1.135.Final/netty-resolver-dns-4.1.135.Final.jar (189 kB at 331 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.21.4/jackson-dataformat-yaml-2.21.4.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/netty/netty-buffer/4.1.135.Final/netty-buffer-4.1.135.Final.jar (359 kB at 618 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springdoc/springdoc-openapi-starter-webmvc-ui/2.8.17/springdoc-openapi-starter-webmvc-ui-2.8.17.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.21.4/jackson-dataformat-yaml-2.21.4.jar (61 kB at 97 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springdoc/springdoc-openapi-starter-webmvc-api/2.8.17/springdoc-openapi-starter-webmvc-api-2.8.17.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/reactivex/rxjava3/rxjava/3.1.12/rxjava-3.1.12.jar (2.7 MB at 4.2 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springdoc/springdoc-openapi-starter-common/2.8.17/springdoc-openapi-starter-common-2.8.17.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springdoc/springdoc-openapi-starter-webmvc-api/2.8.17/springdoc-openapi-starter-webmvc-api-2.8.17.jar (41 kB at 62 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-core-jakarta/2.2.47/swagger-core-jakarta-2.2.47.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springdoc/springdoc-openapi-starter-common/2.8.17/springdoc-openapi-starter-common-2.8.17.jar (559 kB at 812 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-models-jakarta/2.2.47/swagger-models-jakarta-2.2.47.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-core-jakarta/2.2.47/swagger-core-jakarta-2.2.47.jar (262 kB at 367 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/swagger-ui/5.32.2/swagger-ui-5.32.2.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-models-jakarta/2.2.47/swagger-models-jakarta-2.2.47.jar (142 kB at 194 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springdoc/springdoc-openapi-starter-webmvc-ui/2.8.17/springdoc-openapi-starter-webmvc-ui-2.8.17.jar (24 kB at 33 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-annotations-jakarta/2.2.55/swagger-annotations-jakarta-2.2.55.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-keyvalue/3.5.13/spring-data-keyvalue-3.5.13.jar (138 kB at 187 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar (2.4 kB at 3.1 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.18.0/commons-codec-1.18.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/projectreactor/reactor-core/3.7.19/reactor-core-3.7.19.jar (1.9 MB at 2.4 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/mapstruct/mapstruct/1.6.3/mapstruct-1.6.3.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/mapstruct/mapstruct/1.6.3/mapstruct-1.6.3.jar (34 kB at 37 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.jar (2.5 MB at 2.4 MB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/io/swagger/core/v3/swagger-annotations-jakarta/2.2.55/swagger-annotations-jakarta-2.2.55.jar (51 kB at 47 kB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar (64 kB at 55 kB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/swagger-ui/5.32.2/swagger-ui-5.32.2.jar (1.1 MB at 947 kB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.18.0/commons-codec-1.18.0.jar (373 kB at 294 kB/s)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ eladmin-common ---
+[INFO] skip non existing resourceDirectory /workspace/eladmin-common/src/main/resources
+[INFO] skip non existing resourceDirectory /workspace/eladmin-common/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ eladmin-common ---
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.40/lombok-1.18.40.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.40/lombok-1.18.40.pom (1.5 kB at 41 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar (2.0 MB at 28 MB/s)
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 57 source files with javac [debug parameters release 17] to target/classes
+[INFO] /workspace/eladmin-common/src/main/java/me/zhengjie/config/RedisConfiguration.java: Some input files use or override a deprecated API.
+[INFO] /workspace/eladmin-common/src/main/java/me/zhengjie/config/RedisConfiguration.java: Recompile with -Xlint:deprecation for details.
+[INFO] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java: Some input files use unchecked or unsafe operations.
+[INFO] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java: Recompile with -Xlint:unchecked for details.
+[INFO] Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[71,33] incompatible types: io.swagger.v3.oas.models.info.Info cannot be converted to springfox.documentation.service.ApiInfo
+[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[111,48] incompatible types: java.util.List<io.swagger.v3.oas.models.security.SecurityRequirement> cannot be converted to java.util.List<springfox.documentation.service.SecurityReference>
+[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[123,98] cannot find symbol
+  symbol:   method keySet()
+  location: variable authorizationScopes of type io.swagger.v3.oas.models.security.Scopes[]
+[INFO] 3 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for ELADMIN 后台管理 2.7:
+[INFO] 
+[INFO] ELADMIN 后台管理 ....................................... SUCCESS [  0.001 s]
+[INFO] 公共模块 ............................................... FAILURE [  6.554 s]
+[INFO] 日志模块 ............................................... SKIPPED
+[INFO] 代码生成模块 ............................................. SKIPPED
+[INFO] 工具模块 ............................................... SKIPPED
+[INFO] 核心模块 ............................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.709 s
+[INFO] Finished at: 2026-10-01T09:03:23Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.14.1:compile (default-compile) on project eladmin-common: Compilation failure: Compilation failure: 
+[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[71,33] incompatible types: io.swagger.v3.oas.models.info.Info cannot be converted to springfox.documentation.service.ApiInfo
+[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[111,48] incompatible types: java.util.List<io.swagger.v3.oas.models.security.SecurityRequirement> cannot be converted to java.util.List<springfox.documentation.service.SecurityReference>
+[ERROR] /workspace/eladmin-common/src/main/java/me/zhengjie/config/webConfig/SwaggerConfig.java:[123,98] cannot find symbol
+[ERROR]   symbol:   method keySet()
+[ERROR]   location: variable authorizationScopes of type io.swagger.v3.oas.models.security.Scopes[]
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :eladmin-common

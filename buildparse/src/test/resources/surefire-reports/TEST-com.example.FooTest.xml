@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.FooTest" tests="3" failures="0" errors="0" skipped="0" time="0.045">
+  <testcase name="itAddsTwoNumbers" classname="com.example.FooTest" time="0.012"/>
+  <testcase name="itSubtractsTwoNumbers" classname="com.example.FooTest" time="0.008"/>
+  <testcase name="itHandlesZero" classname="com.example.FooTest" time="0.025"/>
+</testsuite>

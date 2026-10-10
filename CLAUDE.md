@@ -1,0 +1,387 @@
+# CLAUDE.md
+
+Verified Spring Boot 2.7 → 3.x migration agent. See [docs/DESIGN.md](docs/DESIGN.md)
+for the full architecture, threat model, and open questions — this file is
+just build commands, conventions, and current status.
+
+## Build
+
+```
+./mvnw compile                          # compile everything
+./mvnw test                             # fast unit tests only (no Docker/network)
+./mvnw test -Dtest=RepoCheckoutIT -pl sandbox        # real network test (JGit clone)
+./mvnw test -Dtest=SandboxRunnerDockerIT -pl sandbox # real Docker test (needs Docker running)
+```
+
+Integration tests are named `*IT` deliberately positioned to avoid
+Surefire's default `Test*`/`*Test(s)`/`*TestCase` inclusion patterns, so
+`./mvnw test` only ever runs fast, hermetic unit tests. Run `*IT` tests
+explicitly when you need to validate against a real Docker daemon or the
+network.
+
+**Environment note**: Docker-dependent commands (`SandboxRunnerDockerIT`, the
+`baseline` CLI command) can't be run from within the coding agent's own
+tool-execution sandbox — a raw Java Unix-socket connect to the Docker socket
+returns "Connection refused" there even though the `docker` CLI itself works
+fine in the same shell. They've since been verified for real in a normal
+terminal (see Status below) — always run Docker-dependent commands yourself,
+not through the agent.
+
+**Known compatibility fix**: Testcontainers 1.21.3 vendors its own shaded,
+frozen copy of an old docker-java-core whose default Docker API version
+negotiation is too old for recent Docker Engine releases (`MinAPIVersion`
+1.40+, e.g. Docker Desktop 4.79 / Engine 29.x) — every connection strategy
+fails identically with an HTTP 400 wrapped in a generic "Could not find a
+valid Docker environment" error. Fixed by pinning a modern API version via
+the `api.version` system property in `TestcontainersSandboxRunner`'s static
+initializer. If Docker connectivity ever breaks again after an environment
+upgrade, check this first before assuming the sandbox code is broken.
+
+## Run the CLI
+
+```
+./mvnw -pl cli -am package -DskipTests
+java -jar cli/target/migration-agent.jar baseline \
+  --repo-url https://github.com/spring-projects/spring-petclinic.git \
+  --commit 276880edef4c3d1029865d19d6d28e982b9d4d01
+```
+
+Writes `runs/<run-id>/baseline.json` and a human-readable summary to stdout.
+Benchmark repos are recorded in [benchmark/manifest.yaml](benchmark/manifest.yaml).
+
+```
+java -jar cli/target/migration-agent.jar rewrite \
+  --repo-url https://github.com/spring-projects/spring-petclinic.git \
+  --commit 276880edef4c3d1029865d19d6d28e982b9d4d01
+```
+
+Runs a baseline build, applies the pinned OpenRewrite Spring Boot 3 recipe,
+diffs the working tree, then builds/tests again on JDK 17. Writes
+`runs/<run-id>/rewrite-report.json` plus `before-build-output.log`,
+`rewrite-output.log`, and `after-build-output.log`.
+
+```
+java -jar cli/target/migration-agent.jar migrate \
+  --repo-url https://github.com/spring-projects/spring-petclinic.git \
+  --commit 276880edef4c3d1029865d19d6d28e982b9d4d01 \
+  --provider groq --budget-steps 10
+```
+
+Same as `rewrite`, but if the recipe alone doesn't leave the repo fully
+compiling with all tests passing, runs the agent loop against whatever
+failures remain. Needs a real API key in `.env` for whichever `--provider`
+is selected (default: the full cascade) — see Secrets below. Writes
+`runs/<run-id>/migrate-report.json`, `runs/<run-id>/trace.jsonl` (one JSON
+line per model call / tool call / patch / build result), and
+`runs/<run-id>/patches/<hash>.diff` for every patch the model proposed.
+
+```
+java -jar cli/target/migration-agent.jar evaluate \
+  --repo spring-petclinic --ablation hybrid
+```
+
+Runs one named repo from `benchmark/manifest.yaml` under one named
+`AblationMode` (`openrewrite_only`, `llm_only`, `hybrid`,
+`hybrid_no_triage`, `hybrid_no_cascade`) and appends one row to
+`runs/eval-results.md`. Deliberately one (repo, ablation) pair per
+invocation, not a loop over the whole matrix — every mode except
+`openrewrite_only` means real Docker time and real free-tier API spend, so
+which combinations actually get run is left to whoever's paying for them
+(in time, if nothing else).
+
+## Conventions
+
+- Java 21 language level (`maven.compiler.release`), even though the JDK
+  actually running Maven on this machine is 25 — the release flag pins the
+  API/bytecode target independent of the toolchain JDK.
+- No logging framework yet. Added only when the agent loop (Phase 3+)
+  actually needs structured, leveled logging — not before.
+- Modules map 1:1 to phases: `buildparse` + `sandbox` + `cli` = Phase 1,
+  `rewrite` = Phase 2, `llm` + `agent` = Phase 3, `guardrails` = Phase 4,
+  `eval` = Phase 6. `trace`, `report` don't exist as separate modules —
+  `trace` turned out to not need its own module (the agent loop's
+  `TraceWriter`/`TraceEvent` live directly in `agent`, since nothing else
+  needs them yet); `report` (the README) is hand-written from recorded
+  `eval` output, not generated by code. Revisit `trace` as its own module
+  only if a future phase needs to depend on tracing without depending on
+  the whole agent loop.
+- Test naming matters here specifically because of the Surefire default
+  include pattern: avoid class names starting with `Test` for anything
+  that isn't meant to run in the fast `./mvnw test` suite (see the
+  `TestcontainersSandboxRunnerIT` → `SandboxRunnerDockerIT` rename in Phase 1
+  history for why).
+
+## Secrets
+
+`.env` is gitignored. `.env.example` documents the provider key names
+(`GROQ_API_KEY`, `OPENROUTER_API_KEY`, `GEMINI_API_KEY`, `OPENAI_API_KEY`) —
+no values ever committed. `EnvFile`/`ProviderBootstrap` (Phase 3) read
+`.env` at CLI startup for `migrate`/`evaluate`. Real keys are in `.env` as
+of this writing (see the Phase 0 action item note at the end of this file).
+See DESIGN.md section 13 for the full secrets-handling design.
+
+Provider config lives in `config/providers.yaml` (loaded via
+`jackson-dataformat-yaml`, not a raw SnakeYAML dependency, so it reuses the
+same record-binding already used for JSON everywhere else). `openrouter`'s
+model (`qwen/qwen3.8-27b:free`) was verified against OpenRouter's live
+`/api/v1/models` endpoint, not guessed — DESIGN.md left this as a
+placeholder.
+
+**Bring your own key**: `migrate` and `evaluate` both take `--env-file` and
+`--providers-config` options (default `.env` / `config/providers.yaml`), so
+anyone who clones this repo can point at their own copies of both files
+without ever touching the committed ones. `providers` in `ProvidersConfig`
+is a plain `Map<String, ProviderConfig>`, not a fixed set of fields, so
+adding a new provider is a config-only change for anything that already
+speaks the OpenAI-compatible wire format. `openai` is included (disabled by
+default — it's not free) as exactly that: zero new client code needed,
+since OpenAI's own API *is* the format every other provider here imitates.
+Anthropic is deliberately not included — its Messages API uses a different
+request/response shape and a different tool-call representation, so
+supporting it would need its own `ChatClient` implementation, not just a
+config entry; not done as part of this change.
+
+## Status
+
+**Phase 0 (design)**: done, approved.
+**Phase 1 (sandbox + baseline)**: implemented and verified end-to-end against both benchmark repos.
+- `buildparse`: `BuildOutputParser`, `SurefireReportParser`,
+  `MavenConsoleParser`, `FailureClassifier` — 21 unit tests, all passing.
+  `compiled` is derived from `testsRan || mavenExitCode == 0`, not just the
+  absence of a javac-style error line — a real bug (see below) taught us
+  that "no error matched" and "actually compiled" are not the same claim.
+- `sandbox`: `RepoCheckout` (JGit), `DeclaredJdkDetector`, `SandboxImages`,
+  `TestcontainersSandboxRunner` — unit tests passing; `RepoCheckoutIT` and
+  `SandboxRunnerDockerIT` both verified against real network/Docker in a
+  normal terminal.
+- `cli`: `MigrationAgentCli` + `BaselineCommand` — verified real runs:
+  - **spring-petclinic**: compiled, 41 tests (40 pass, 1 skipped, 0
+    failed/errored), exit code 0.
+  - **eladmin**: compiled, 0 tests executed — the repo's own root `pom.xml`
+    hardcodes `<skip>true</skip>` on `maven-surefire-plugin` as a literal
+    value, which cannot be overridden by `-D` flags (Maven only re-consults
+    a system property when the POM configuration is itself an expression).
+    Accepted as a known limitation rather than patched — see
+    `benchmark/manifest.yaml`.
+  - Baseline always passes `-Dspring-javaformat.skip=true
+    -Dcheckstyle.skip=true`: these are style/format plugins, not tests, and
+    old versions are prone to failing on toolchain/architecture
+    combinations (e.g. `spring-javaformat`'s bundled Eclipse JDT internals
+    crashing under this container's JDK 8 on Apple Silicon) unrelated to
+    whether the actual application code and tests are sound.
+  - Every run's raw console output is saved to `runs/<run-id>/build-output.log`
+    regardless of outcome — needed for debugging, and cheap to keep.
+
+**Phase 2 (OpenRewrite + before/after comparison)**: implemented and verified
+end-to-end against spring-petclinic.
+- `rewrite`: `SpringBootMigrationRecipe` (pins `rewrite-maven-plugin:6.46.1`
+  + `rewrite-spring:6.37.1` running `UpgradeSpringBoot_3_5` — verified by
+  downloading the actual jar and reading its `META-INF/rewrite/*.yml`, not
+  just docs, after an earlier docs-summary pass turned out to have recorded
+  slightly wrong version numbers), `GitDiffSummarizer` (working-tree vs.
+  index diff via JGit, plus untracked-file detection — the two sources
+  turned out to overlap in practice, which the unit test caught and the
+  code now deduplicates by path). 2 unit tests, both passing, using a real
+  local git repo (no Docker/network needed).
+- `cli`: `RewriteCommand` — clone, baseline build (before), apply recipe,
+  diff, rebuild on JDK 17 (after), write `rewrite-report.json`. Shares
+  `BuildAndTestStep`/`JdkDetection`/`RunIds` with `BaselineCommand` now
+  (extracted during this phase to avoid duplicating the same three-call-site
+  logic). The recipe step gets its own `--rewrite-timeout-seconds` (default
+  1200s, separate from `--build-timeout-seconds`) after a real cold run
+  timed out at the shared 600s default — downloading the whole OpenRewrite
+  dependency tree and parsing the target repo into its own AST is
+  substantially heavier than `mvn test`. If the recipe doesn't exit 0, the
+  after-build is skipped entirely rather than measuring an unmigrated repo
+  and calling it a comparison.
+- **spring-petclinic verified result**: recipe exit 0, 22 files changed
+  (pom.xml, build.gradle, JPA entities and controllers for the
+  javax→jakarta swap, Gradle wrapper files), compiled on JDK 17, **41/41
+  tests still passing — zero regression**. A complete, deterministic-only
+  Boot 2.7.3 → 3.5.x migration with no LLM involved. See
+  `benchmark/manifest.yaml` for the full numbers.
+- eladmin's rewrite run not yet done — lower priority given its baseline
+  already runs 0 tests (Phase 1 finding), so it can only confirm
+  compile-level success, not test preservation.
+
+**Phase 3 (LLM client + agent loop)**: implemented, unit-tested, and now
+verified live end-to-end against eladmin with real Groq/OpenRouter calls
+(see `benchmark/manifest.yaml`'s `verified_migrate` entry). Two real bugs
+only surfaced by that live run, both fixed:
+- `ChatJson` defaulted to Jackson's `FAIL_ON_UNKNOWN_PROPERTIES=true`, which
+  crashed on the very first real model response — a Groq reasoning-capable
+  model returned an undeclared `"reasoning"` field alongside `content`.
+  Fixed by disabling that feature; "OpenAI-compatible" never meant
+  identical wire format down to the last field.
+- `TestcontainersSandboxRunner` only captured output via
+  `execInContainer`'s return value, which never materializes for a process
+  that gets killed on timeout — a timed-out eladmin rewrite run produced
+  *zero* diagnostic output, giving no way to tell "stuck" from "just slow."
+  Fixed by redirecting to a file inside the bind-mounted workspace (so it
+  survives the container being killed), explicitly preserving `mvn`'s real
+  exit code rather than a pipe-through-`tee`'s, which would have silently
+  broken every exit-code-based check.
+- `llm`: `ProvidersConfig`/`ProviderConfig`/`BudgetLimits` (YAML via
+  `jackson-dataformat-yaml`), `EnvFile` (hand-rolled `.env` parser),
+  `Redactor` (defense-in-depth key-shape regexes), `RateLimiter`
+  (token-bucket, injectable clock/sleeper so its test is instant and
+  deterministic — no real `Thread.sleep`), `BudgetTracker` (in-memory
+  per-run + persisted-to-disk per-day, keyed by UTC date), the OpenAI-
+  compatible chat DTOs, and `OpenAiCompatibleChatClient` (retry-with-
+  backoff on 429, budget pre-check before every call). The chat client's
+  tests run against a real local `com.sun.net.httpserver.HttpServer`, not a
+  mock — exercises real request serialization and response parsing.
+- `agent`: seven tools (`read_file`, `search_code`, `propose_patch`,
+  `run_build`, `run_tests`, `get_dependency_tree`, `lookup_migration_note`)
+  plus `AgentLoop`, `TraceWriter`/`TraceEvent`. `propose_patch` now runs the
+  full Phase 4 `GuardrailEngine` (see below) before ever calling JGit's
+  `ApplyCommand`. `AgentLoop` is tested end-to-end with a scripted fake
+  `ChatClient` and fake `SandboxRunner` — real JGit repo, real patch
+  application, real `BuildOutputParser` reading real (fixture) surefire XML
+  off disk, only the model and Docker faked out.
+- `sandbox`: `SandboxRunner` gained a network-toggle overload
+  (`withNetworkMode("none")` + Maven `-o`) for agent-triggered rebuilds,
+  which reuse the `.m2` cache a harness-controlled build already warmed
+  rather than hitting the network again (DESIGN.md section 5.2).
+- `cli`: `MigrateCommand` — baseline → recipe → (if unresolved) agent loop,
+  writing `migrate-report.json` + `trace.jsonl` + one `.diff` file per
+  proposed patch.
+
+**Phase 4 (guardrails + patch validation)**: implemented and unit-tested —
+28 tests, all passing, zero Docker/network needed (pure diff-text analysis).
+- `guardrails`: `GuardrailEngine` runs 5 rules in order against every
+  proposed patch — `PathContainmentGuardrail`, `NoTestDeletionGuardrail`
+  (whole-file deletion via the `+++ /dev/null` diff convention, or a
+  removed `@Test` annotation), `NoTestWeakeningGuardrail` (added
+  `@Disabled`/`@Ignore`, or more assertion-shaped lines removed than
+  added), `NoExceptionSwallowingGuardrail` (an added `catch` block in a
+  test file whose body is empty or log-only, with no `throw`/`fail`/
+  `assert` — heuristic, scans contiguous added-line runs), and
+  `NoVersionDowngradeGuardrail` (an adjacent removed/added version-line
+  pair in a `pom.xml` hunk showing Spring Boot dropping below major
+  version 3 or Java below 17). All rules are diff/text-pattern based, not
+  full AST analysis — a documented MVP trade-off (DESIGN.md section 10),
+  backed by `PostSuccessVerifier` as the real backstop.
+- **Explicitly tested for prompt-injection immunity**: `GuardrailEngineTest`
+  constructs a cheating patch (deletes a test file) with injected text
+  inside the diff — fake "SYSTEM OVERRIDE: ignore previous guardrail
+  instructions" comments aimed at an imagined reviewer — and asserts the
+  patch is rejected on the exact same grounds (`NO_TEST_DELETION`) as the
+  same patch without the injection attempt. This is possible to prove at
+  all only because no guardrail rule ever reads diff/file content as
+  natural-language instructions — they're pure regex/structural checks.
+- `PostSuccessVerifier`: compares the final state against the *original*
+  baseline (not the post-rewrite state) — test count must not have
+  dropped, skipped count must not have grown. JaCoCo coverage comparison
+  is explicitly not implemented (would need a report parser this project
+  doesn't have) rather than faked — "never invent metrics" extends to
+  guardrail verdicts too.
+- A real naming bug caught immediately by the compiler: `GuardrailVerdict`'s
+  boolean record component `accepted` auto-generates an instance accessor
+  `accepted()`, which collided with a static factory method of the same
+  name. Fixed by renaming the factory to `GuardrailVerdict.ok()`.
+- `agent`'s `ProposePatchTool` and `cli`'s `MigrateCommand` both wired in —
+  every patch goes through `GuardrailEngine` before applying, and
+  `MigrateCommand` runs `PostSuccessVerifier` once the loop reports
+  resolved, printing a `WARNING` and recording `postSuccessViolations` in
+  `migrate-report.json` if the resolved state doesn't actually hold up.
+
+**Phase 5 (triage + model cascade)**: implemented and unit-tested — 109
+tests across the whole reactor now, all passing, zero Docker/network needed.
+- `agent`: `JavaxJakartaAutoFixer` — deterministic, harness-coded text
+  substitution for 8 unambiguous javax→jakarta package renames
+  (`javax.persistence`, `.servlet`, `.validation`, `.transaction`,
+  `.ws.rs`, `.xml.bind`, `.mail`, `.jms`), applied directly to disk, no
+  guardrail check (it's trusted harness code, the same trust level as the
+  OpenRewrite recipe step, not model output). `javax.annotation`
+  deliberately excluded: `javax.annotation.processing.*` is JDK built-in
+  and unrelated to Jakarta EE, so a blanket substitution would wrongly
+  rewrite it — left to the model if it ever comes up.
+- `agent`: `ModelCascade` — tries tier 0 first, escalates to the next tier
+  only when an *iteration* makes no net progress (failure count didn't
+  drop), one-directional (never falls back once escalated). This is a
+  deliberate simplification from DESIGN.md section 7.4/section 9's
+  per-failure-group cascade tracking to per-iteration tracking — the
+  former would mean splitting the loop into per-category sub-loops, a
+  bigger structural change than this phase's budget justified.
+- `AgentLoop` now runs triage fixes *before* ever calling the model each
+  iteration — if triage alone resolves everything, the model is never
+  called that run at all (proven by a test using a `FakeChatClient`
+  scripted with zero responses — any call at all throws). A second new
+  integration test proves escalation for real: tier 1 gives up without
+  trying a patch, tier 2 (a second `FakeChatClient`) proposes the actual
+  fix, and `trace.jsonl` shows `"tier":0`/`"tier":1` against the right
+  provider names.
+- `cli`: `ProviderBootstrap.loadCascade()` builds the full cascade from
+  `config/providers.yaml`'s `cascade_order`, sharing one `BudgetTracker`
+  across every tier (the YAML's `budgets:` block is a single top-level
+  section, not per-provider). A tier missing its API key is skipped with a
+  printed warning rather than failing the whole cascade. `migrate`'s
+  `--provider` flag now means "use only this one provider instead of the
+  cascade" (no longer has a default value — omit it entirely to get the
+  full cascade).
+- **eladmin verified live result** (real keys, real Groq/OpenRouter calls):
+  recipe alone left 6 compile failures (a genuine SpringFox-vs-Boot-3
+  incompatibility, not a tool bug), agent loop escalated tier 0→1 exactly
+  as designed, but exhausted its per-run token budget on exploration (57
+  tool calls) before ever calling `propose_patch` once. Recorded honestly
+  as `budget_exhausted`/unresolved rather than retuned-until-it-passes —
+  see `benchmark/manifest.yaml`'s `verified_migrate` entry for the full
+  numbers and the two bugs this run caught (above).
+
+**Phase 6 (eval harness, ablations, README)**: eval harness implemented and
+unit-tested (117 tests across the whole reactor now). `OPENREWRITE_ONLY` has
+now been run for real against both benchmark repos (zero API cost, pure
+Docker time); the LLM-involving ablations (`LLM_ONLY`, `HYBRID`,
+`HYBRID_NO_TRIAGE`, `HYBRID_NO_CASCADE`) have not — see `runs/eval-results.md`
+for the two recorded rows. **README still not written** — it waits for at
+least one real hybrid-mode run before there's anything meaningful to compare
+against openrewrite-only.
+- **Real bug found running these evals**: `TestcontainersSandboxRunner`'s
+  diagnostic log file (`.sandbox-live-output.log`, added during Phase 3/5 to
+  capture partial output on a sandbox timeout — see the eladmin
+  `verified_migrate` entry below) was written inside the bind-mounted
+  workspace and never deleted, so it showed up as a spurious untracked file
+  to `GitDiffSummarizer` on every run, inflating the `files_changed` count
+  by exactly 1 (eladmin: 167→166, petclinic: 24→22 after fixing *two*
+  overlapping bugs — see next bullet). Fixed by deleting the log file in a
+  `finally` block after every sandbox run, win or lose.
+- **Second, unrelated discrepancy found while chasing the first one**:
+  re-running petclinic after the log-file fix still showed 22 files, not the
+  23 recorded in `benchmark/manifest.yaml`'s Phase 2 `verified_rewrite` entry
+  — diffed both workspaces' `git status --short` output directly and they
+  were identical, byte-for-byte, down to the same 22 filenames. The original
+  "23" was simply a stale miscount from Phase 2, unrelated to the log-file
+  bug (which didn't exist yet when that number was first recorded). Corrected
+  in both `benchmark/manifest.yaml` and this file rather than left standing
+  just because it predates the bug that prompted the re-check.
+- `eval`: `AblationMode` (`OPENREWRITE_ONLY`, `LLM_ONLY`, `HYBRID`,
+  `HYBRID_NO_TRIAGE`, `HYBRID_NO_CASCADE`), `BenchmarkManifest` (loads
+  `benchmark/manifest.yaml`, tolerant of its human-written `verified_*`
+  sections it doesn't model), `TraceAnalyzer` (reads `trace.jsonl` back as
+  plain JSON rather than depending on `agent`'s `TraceEvent` types just to
+  re-read what it already wrote — rule-fix counts and per-tier model-call
+  counts are exact; which *tier* gets credited for a given build
+  improvement is a documented approximation, matched by timestamp
+  proximity, since DESIGN.md's cascade tracking is per-iteration not
+  per-failure), `EvalResult`, `ResultsTableWriter` (appends one Markdown
+  row per invocation rather than batch-generating the table, since ablation
+  runs are expensive one at a time, let alone all five times five repos).
+- `agent`: `AgentLoop` gained a `triageEnabled` constructor flag for the
+  `HYBRID_NO_TRIAGE` ablation — existing callers are unaffected via a
+  convenience constructor defaulting it to `true`.
+- `cli`: `EvaluateCommand` — one (repo, ablation) pair per invocation,
+  appends to `runs/eval-results.md`. Deliberately duplicates a fair amount
+  of `MigrateCommand`'s orchestration rather than extracting a shared
+  pipeline class this late in the project — a scope call, not an oversight,
+  flagged in the file's own Javadoc as worth unifying in a future pass.
+- **Not done yet**: no real `evaluate` invocations have been run (every
+  mode past `openrewrite_only` costs real free-tier spend, and today's
+  budget already has real usage from the eladmin `migrate` run above), so
+  `runs/eval-results.md` doesn't exist yet and the README has no real
+  numbers to be built from. "Never invent metrics" means the README can't
+  be written as filler text now and backfilled later — it waits for actual
+  runs.
+
+Secrets action item from Phase 0 is now resolved: real keys are in `.env`
+(gitignored), and `api_keys.env.docx` has been deleted.

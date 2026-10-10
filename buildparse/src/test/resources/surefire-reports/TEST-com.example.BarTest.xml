@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.BarTest" tests="4" failures="1" errors="1" skipped="1" time="0.210">
+  <testcase name="itPersistsAnEntity" classname="com.example.BarTest" time="0.050"/>
+  <testcase name="itRejectsInvalidInput" classname="com.example.BarTest" time="0.030">
+    <failure message="expected:&lt;true&gt; but was:&lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected:&lt;true&gt; but was:&lt;false&gt;
+	at com.example.BarTest.itRejectsInvalidInput(BarTest.java:42)
+</failure>
+  </testcase>
+  <testcase name="itLoadsEntityFromRepository" classname="com.example.BarTest" time="0.100">
+    <error message="package javax.persistence does not exist" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: javax/persistence/EntityManager
+	at com.example.BarTest.itLoadsEntityFromRepository(BarTest.java:58)
+</error>
+  </testcase>
+  <testcase name="itIsSkippedForNow" classname="com.example.BarTest" time="0.0">
+    <skipped/>
+  </testcase>
+</testsuite>

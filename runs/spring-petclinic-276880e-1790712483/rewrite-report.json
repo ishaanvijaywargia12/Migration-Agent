@@ -1,0 +1,39 @@
+{
+  "repoUrl" : "https://github.com/spring-projects/spring-petclinic.git",
+  "commit" : "276880edef4c3d1029865d19d6d28e982b9d4d01",
+  "recipePluginVersion" : "6.46.1",
+  "recipeArtifactCoordinates" : "org.openrewrite.recipe:rewrite-spring:6.37.1",
+  "activeRecipe" : "org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_5",
+  "beforeJdkMajorVersion" : 8,
+  "beforeBuild" : {
+    "compiled" : true,
+    "testsRan" : true,
+    "testsTotal" : 41,
+    "testsFailed" : 0,
+    "testsErrored" : 0,
+    "testsSkipped" : 1,
+    "failures" : [ ],
+    "wallClock" : 17.031130000,
+    "mavenExitCode" : 0
+  },
+  "recipeExitCode" : -1,
+  "diff" : {
+    "changedFiles" : [ {
+      "path" : "mvnw.cmd",
+      "changeType" : "MODIFIED"
+    } ]
+  },
+  "afterJdkMajorVersion" : 17,
+  "afterBuild" : {
+    "compiled" : true,
+    "testsRan" : true,
+    "testsTotal" : 41,
+    "testsFailed" : 0,
+    "testsErrored" : 0,
+    "testsSkipped" : 1,
+    "failures" : [ ],
+    "wallClock" : 13.786395000,
+    "mavenExitCode" : 0
+  },
+  "startedAt" : "2026-09-29T20:18:39.191437Z"
+}

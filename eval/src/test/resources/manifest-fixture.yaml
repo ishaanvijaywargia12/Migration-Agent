@@ -1,0 +1,12 @@
+repos:
+  - name: spring-petclinic
+    repo_url: https://github.com/spring-projects/spring-petclinic.git
+    commit_sha: 276880edef4c3d1029865d19d6d28e982b9d4d01
+    spring_boot_version: 2.7.3
+    license: Apache-2.0
+    notes: >
+      Some human-readable notes that the loader should tolerate and ignore.
+    verified_baseline:
+      date: 2026-09-30
+      maven_exit_code: 0
+      compiled: true

@@ -1,0 +1,41 @@
+{
+  "repoUrl" : "https://github.com/elunez/eladmin.git",
+  "commit" : "429f375f8274023ee55e94f01f334777415001d8",
+  "recipePluginVersion" : "6.46.1",
+  "recipeArtifactCoordinates" : "org.openrewrite.recipe:rewrite-spring:6.37.1",
+  "activeRecipe" : "org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_5",
+  "beforeJdkMajorVersion" : 8,
+  "beforeBuild" : {
+    "compiled" : true,
+    "testsRan" : false,
+    "testsTotal" : 0,
+    "testsFailed" : 0,
+    "testsErrored" : 0,
+    "testsSkipped" : 0,
+    "failures" : [ ],
+    "wallClock" : 8.103305000,
+    "mavenExitCode" : 0
+  },
+  "recipeExitCode" : -1,
+  "diff" : {
+    "changedFiles" : [ ]
+  },
+  "afterJdkMajorVersion" : 17,
+  "afterRewriteBuild" : null,
+  "agentLoopUsed" : false,
+  "cascadeProviders" : [ ],
+  "agentIterationBudget" : 10,
+  "finalBuild" : {
+    "compiled" : true,
+    "testsRan" : false,
+    "testsTotal" : 0,
+    "testsFailed" : 0,
+    "testsErrored" : 0,
+    "testsSkipped" : 0,
+    "failures" : [ ],
+    "wallClock" : 8.103305000,
+    "mavenExitCode" : 0
+  },
+  "postSuccessViolations" : [ ],
+  "startedAt" : "2026-10-01T08:26:33.857241Z"
+}

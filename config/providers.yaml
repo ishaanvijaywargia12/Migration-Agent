@@ -1,0 +1,76 @@
+# Free-tier LLM provider configuration. See docs/DESIGN.md section 1.2/1.3/7.1
+# for how each of these values was verified (not guessed) and why.
+#
+# api_key_env is a NAME, never a value — the actual key is read from that
+# environment variable at CLI startup (populated from .env), and is never
+# written back into this file or any log.
+
+providers:
+  groq:
+    base_url: https://api.groq.com/openai/v1
+    api_key_env: GROQ_API_KEY
+    model: openai/gpt-oss-20b
+    rpm: 30
+    rpd: 1000
+    enabled: true
+
+  openrouter:
+    base_url: https://openrouter.ai/api/v1
+    api_key_env: OPENROUTER_API_KEY
+    # Verified against OpenRouter's live /api/v1/models endpoint (not
+    # guessed): a real, current :free model with a 262K context window,
+    # explicitly positioned by its provider for "coding ... and long-running
+    # agent tasks."
+    model: qwen/qwen3.8-27b:free
+    rpm: 20
+    # OpenRouter's :free daily cap depends on lifetime credit history (50/day
+    # at $0 spent, 1000/day once $10+ has ever been purchased — DESIGN.md
+    # section 1.2, open question 4). Defaulted to the conservative floor;
+    # bump this if you've ever funded the account.
+    rpd: 50
+    enabled: true
+
+  gemini:
+    base_url: https://generativelanguage.googleapis.com/v1beta/openai/
+    api_key_env: GEMINI_API_KEY
+    model: gemini-2.5-flash
+    # Google no longer publishes a static free-tier rate-limit table (only
+    # viewable per-account after login at aistudio.google.com/rate-limit) —
+    # DESIGN.md section 1.2. This is a conservative placeholder, not a
+    # verified number. Off by default for that reason.
+    rpm: 5
+    rpd: 100
+    enabled: false
+
+  # Bring-your-own-key slot: OpenAI's own API *is* the "OpenAI-compatible"
+  # wire format (every provider above is the one imitating it), so this
+  # needs zero new client code — just a real OPENAI_API_KEY in your .env
+  # and enabled: true. Off by default since it's not free; a real paid key
+  # means real spend, on top of (not instead of) the budgets: caps below.
+  # rpm/rpd are placeholders since OpenAI's actual limits depend on your
+  # account's own usage tier, not a fixed published number — tighten these
+  # to your real account's limits if you enable this.
+  openai:
+    base_url: https://api.openai.com/v1
+    api_key_env: OPENAI_API_KEY
+    model: gpt-4o-mini
+    rpm: 60
+    rpd: 10000
+    enabled: false
+
+  # NOTE: Anthropic is deliberately not listed here. Its Messages API is
+  # not OpenAI-wire-compatible (different auth header, different request/
+  # response shape, different tool-call representation), so it would need
+  # its own ChatClient implementation, not just a config entry — not done
+  # as part of this bring-your-own-key change.
+
+# Order the model cascade tries providers in. A disabled provider (see
+# enabled: above) is skipped automatically, so adding openai here costs
+# nothing until someone actually enables it with their own key.
+cascade_order: [groq, openrouter, gemini, openai]
+
+budgets:
+  per_run_requests: 60
+  per_run_tokens: 200000
+  per_day_requests: 500
+  per_day_tokens: 1000000

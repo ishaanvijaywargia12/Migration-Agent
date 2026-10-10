@@ -1,0 +1,136 @@
+# Benchmark repos for this tool. Only repo URL + commit SHA are stored here —
+# never a vendored copy of the target repo's code (DESIGN.md section 12,
+# license risk). Each entry was verified before being added: permissive
+# license, not archived, real Maven build, genuine test suite, and pinned to
+# a commit that is actually on Spring Boot 2.7.x (not 2.6.x or 3.x).
+
+repos:
+  - name: spring-petclinic
+    repo_url: https://github.com/spring-projects/spring-petclinic.git
+    commit_sha: 276880edef4c3d1029865d19d6d28e982b9d4d01
+    spring_boot_version: 2.7.3
+    license: Apache-2.0
+    notes: >
+      Full Thymeleaf + Spring MVC + JPA/Hibernate CRUD app. Exercises
+      javax->jakarta and Hibernate 5->6 migration categories. Real,
+      long-standing test suite.
+    verified_baseline:
+      date: 2026-09-30
+      maven_exit_code: 0
+      compiled: true
+      tests_total: 41
+      tests_failed: 0
+      tests_errored: 0
+      tests_skipped: 1
+      jdk: 8
+      note: >
+        Required -Dspring-javaformat.skip=true and -Dcheckstyle.skip=true
+        (style/format plugins, not tests) to get past a PluginContainerException
+        in the repo's own spring-javaformat-maven-plugin binding.
+    verified_rewrite:
+      date: 2026-09-30
+      recipe: org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_5
+      recipe_exit_code: 0
+      files_changed: 22
+      after_jdk: 17
+      after_compiled: true
+      after_tests_total: 41
+      after_tests_failed: 0
+      after_tests_errored: 0
+      note: >
+        Complete, deterministic-only Boot 2.7.3 -> 3.5.x migration with zero
+        test regression (41/41 before, 41/41 after). Required
+        --rewrite-timeout-seconds=1200 on a cold run (default 600s timed out
+        mid-recipe on first invocation — downloading the full OpenRewrite
+        dependency tree plus parsing the whole repo into its own AST is
+        heavier than a plain `mvn test`). Recipe also touched build.gradle
+        and the Gradle wrapper files alongside pom.xml, since rewrite-spring's
+        recipe chain includes both Maven and Gradle sub-recipes regardless of
+        which build system actually invoked it.
+
+  - name: eladmin
+    repo_url: https://github.com/elunez/eladmin.git
+    commit_sha: 429f375f8274023ee55e94f01f334777415001d8
+    spring_boot_version: 2.7.18
+    license: Apache-2.0
+    notes: >
+      Multi-module Maven reactor (JPA, Spring Security, WebSocket, caching).
+      Complements spring-petclinic by exercising the Spring Security config
+      migration category, which petclinic never touches.
+    verified_baseline:
+      date: 2026-09-30
+      maven_exit_code: 0
+      compiled: true
+      tests_total: 0
+      jdk: 8
+      note: >
+        The repo's own root pom.xml hardcodes <skip>true</skip> on
+        maven-surefire-plugin (literal value, not a ${property} expression) —
+        tests never run by default and this cannot be overridden via -D
+        command-line flags, only by editing the pom. Deliberately not patched
+        for baseline (Phase 1 does no target-repo modification). Accepted as
+        a known limitation: this repo still exercises compile-level Spring
+        Security/JPA migration, just not the "tests preserved" success
+        metric, since 0 tests run both before and after migration either way.
+    verified_rewrite:
+      date: 2026-10-01
+      recipe: org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_5
+      recipe_exit_code: 0
+      files_changed: 166
+      after_jdk: 17
+      after_compiled: false
+      after_failures: 6
+      after_failure_category: UNKNOWN
+      note: >
+        Recipe alone does not fully resolve this repo (unlike spring-petclinic).
+        All 6 residual compile failures are the same root cause: SpringFox
+        (Swagger 2 integration) is incompatible with Spring Boot 3/Spring
+        Framework 6 — "incompatible types: io.swagger.v3.oas.models.info.Info
+        cannot be converted to springfox.documentation.service.ApiInfo" in
+        SwaggerConfig.java. This is a genuinely hard migration (SpringFox is
+        unmaintained; fixing it means swapping to springdoc-openapi with a
+        different API, not a mechanical rename), not a tool bug — the
+        FailureClassifier taxonomy doesn't have a dedicated category for it
+        either, hence UNKNOWN. First real multi-module reactor in the
+        benchmark; needed --rewrite-timeout-seconds=2400 on a cold run (1200s
+        wasn't enough — more modules and a heavier dependency set than
+        petclinic's single module).
+    verified_migrate:
+      date: 2026-10-01
+      agent_loop_used: true
+      final_resolved: false
+      final_status: budget_exhausted
+      iterations_completed: 5
+      iterations_budgeted: 10
+      model_calls: 33
+      tool_calls: 57
+      patches_proposed: 0
+      cascade_tiers_used: ["groq (8 calls)", "openrouter (25 calls)"]
+      note: >
+        First real end-to-end run of the full agent loop (Phases 3-5) against
+        a live free-tier cascade. Cascade escalation worked exactly as
+        designed: tier 0 (groq) made no progress in its iterations, escalated
+        to tier 1 (openrouter), which then made all remaining calls. But the
+        run never got as far as proposing a single patch — exhausted its
+        per-run token budget (200,000, see config/providers.yaml) entirely on
+        exploration (31 search_code + 19 read_file + 3 get_dependency_tree +
+        4 lookup_migration_note calls) before ever calling propose_patch.
+        Checked ~/.migration-agent/budget-state.json: only 59 requests /
+        357,423 tokens used that whole day against daily caps of 500 /
+        1,000,000 — nowhere close, so this was specifically the *per-run*
+        token limit, not a daily cap. Recorded as-is rather than retuned and
+        rerun: a genuine, honest data point (free-tier small models spending
+        their whole budget exploring a 6-failure problem without converging
+        on a fix attempt) rather than a bug — exactly the kind of result the
+        Phase 6 eval/ablation harness exists to surface and compare across
+        configs, not something to hide by tuning until it looks better.
+      bugs_found_during_this_run:
+        - "ChatJson failed on any unknown JSON field in a model response (FAIL_ON_UNKNOWN_PROPERTIES
+           defaulted true) — crashed on a real Groq response that included a
+           'reasoning' field. Fixed by disabling that Jackson feature."
+        - "TestcontainersSandboxRunner captured output only via execInContainer's
+           return value, which never materializes on a timeout — a killed build
+           produced zero diagnostic output. Fixed by redirecting to a file inside
+           the bind-mounted workspace that survives the container being killed,
+           taking care to preserve mvn's real exit code rather than a pipe's."
+
