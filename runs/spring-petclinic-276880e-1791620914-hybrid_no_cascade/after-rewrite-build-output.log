@@ -1,0 +1,475 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.springframework.samples:spring-petclinic:jar:2.7.3
+[WARNING] 'build.plugins.plugin.version' for pl.project13.maven:git-commit-id-plugin is missing. @ line 214, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------< org.springframework.samples:spring-petclinic >------------
+[INFO] Building petclinic 2.7.3
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'encoding' is unknown for plugin 'maven-checkstyle-plugin:3.6.0:check (nohttp-checkstyle-validation)'
+[INFO] 
+[INFO] --- spring-javaformat:0.0.31:validate (default) @ spring-petclinic ---
+[INFO] 
+[INFO] --- checkstyle:3.6.0:check (nohttp-checkstyle-validation) @ spring-petclinic ---
+[INFO] 
+[INFO] --- jacoco:0.8.15:prepare-agent (default) @ spring-petclinic ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.15/org.jacoco.agent-0.8.15-runtime.jar=destfile=/workspace/target/jacoco.exec
+[INFO] 
+[INFO] --- git-commit-id:4.9.10:revision (default) @ spring-petclinic ---
+[INFO] dotGitDirectory /workspace/.git
+[WARNING] Thread[JGit-FileStoreAttributeReader-1,5,main]: got smaller file timestamp on /workspace (/run/host_mark/Users), /workspace/.git: 2026-10-10T08:42:36Z < 2026-10-10T08:42:36.02289588Z. Aborting measurement at resolution PT0.97710412S.
+[INFO] Collected git.build.user.name with value 
+[INFO] Collected git.build.user.email with value 
+[INFO] Collected git.branch with value 276880edef4c3d1029865d19d6d28e982b9d4d01
+[INFO] --always = true
+[INFO] --dirty = -dirty
+[INFO] --abbrev = 7
+[INFO] Tag refs [[Ref[refs/tags/1.5.x=c36452a2c34443ae26b4ecbba4f149906af14717(-1)]]]
+[INFO] Created map: [{}]
+[INFO] evalCommit is [276880edef4c3d1029865d19d6d28e982b9d4d01]
+[INFO] Collected git.commit.id.describe with value 276880e-dirty
+[INFO] Collected git.commit.id.describe-short with value 276880e-dirty
+[INFO] Collected git.commit.id with value 276880edef4c3d1029865d19d6d28e982b9d4d01
+[INFO] Collected git.commit.id.abbrev with value 276880e
+[INFO] Collected git.dirty with value true
+[INFO] Collected git.commit.user.name with value dgcd
+[INFO] Collected git.commit.user.email with value dgnedin@mail.ru
+[INFO] Collected git.commit.message.full with value Upgrade to Gradle 7.5.1 and to Spring Boot 2.7.3
+[INFO] Collected git.commit.message.short with value Upgrade to Gradle 7.5.1 and to Spring Boot 2.7.3
+[INFO] Collected git.commit.time with value 2022-09-05T11:48:27+0000
+[INFO] Collected git.commit.author.time with value 2022-09-01T20:29:06+0000
+[INFO] Collected git.commit.committer.time with value 2022-09-01T20:29:06+0000
+[INFO] Collected git.remote.origin.url with value https://github.com/spring-projects/spring-petclinic.git
+[INFO] Collected git.tags with value 
+[INFO] evalCommit is [276880edef4c3d1029865d19d6d28e982b9d4d01]
+[INFO] Tag refs [[Ref[refs/tags/1.5.x=c36452a2c34443ae26b4ecbba4f149906af14717(-1)]]]
+[INFO] Created map: [{}]
+[INFO] Collected git.closest.tag.name with value 
+[INFO] evalCommit is [276880edef4c3d1029865d19d6d28e982b9d4d01]
+[INFO] Tag refs [[Ref[refs/tags/1.5.x=c36452a2c34443ae26b4ecbba4f149906af14717(-1)]]]
+[INFO] Created map: [{}]
+[INFO] Collected git.closest.tag.commit.count with value 
+[INFO] Collected git.total.commit.count with value 813
+[INFO] Collected git.local.branch.ahead with value NO_REMOTE
+[INFO] Collected git.local.branch.behind with value NO_REMOTE
+[INFO] Collected git.build.time with value 2026-10-10T08:42:37+0000
+[INFO] Collected git.build.version with value 2.7.3
+[INFO] Collected git.build.host with value 95e99ef9b66f
+[INFO] including property git.tags in results
+[INFO] including property git.build.version in results
+[INFO] including property git.branch in results
+[INFO] including property git.build.host in results
+[INFO] including property git.commit.id in results
+[INFO] including property git.commit.user.email in results
+[INFO] including property git.local.branch.behind in results
+[INFO] including property git.commit.author.time in results
+[INFO] including property git.build.user.name in results
+[INFO] including property git.dirty in results
+[INFO] including property git.closest.tag.commit.count in results
+[INFO] including property git.commit.user.name in results
+[INFO] including property git.commit.id.abbrev in results
+[INFO] including property git.commit.id.describe-short in results
+[INFO] including property git.total.commit.count in results
+[INFO] including property git.commit.id.describe in results
+[INFO] including property git.build.user.email in results
+[INFO] including property git.commit.message.short in results
+[INFO] including property git.commit.committer.time in results
+[INFO] including property git.closest.tag.name in results
+[INFO] including property git.local.branch.ahead in results
+[INFO] including property git.commit.time in results
+[INFO] including property git.build.time in results
+[INFO] including property git.commit.message.full in results
+[INFO] including property git.remote.origin.url in results
+[INFO] Reading existing properties file [/workspace/target/classes/git.properties] (for module petclinic)...
+[INFO] Writing properties file to [/workspace/target/classes/git.properties] (for module petclinic)...
+[INFO] 
+[INFO] --- spring-boot:3.5.16:build-info (default) @ spring-petclinic ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ spring-petclinic ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] Copying 43 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ spring-petclinic ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 23 source files with javac [debug parameters release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ spring-petclinic ---
+[INFO] skip non existing resourceDirectory /workspace/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ spring-petclinic ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 11 source files with javac [debug parameters release 17] to target/test-classes
+[WARNING] /workspace/src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java:[63,10] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /workspace/src/test/java/org/springframework/samples/petclinic/owner/PetControllerTests.java:[50,10] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /workspace/src/test/java/org/springframework/samples/petclinic/owner/VisitControllerTests.java:[48,10] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /workspace/src/test/java/org/springframework/samples/petclinic/vet/VetControllerTests.java:[47,10] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[INFO] /workspace/src/test/java/org/springframework/samples/petclinic/vet/VetTests.java: /workspace/src/test/java/org/springframework/samples/petclinic/vet/VetTests.java uses or overrides a deprecated API.
+[INFO] /workspace/src/test/java/org/springframework/samples/petclinic/vet/VetTests.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ spring-petclinic ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.springframework.samples.petclinic.vet.VetControllerTests
+08:42:39.505 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.springframework.samples.petclinic.vet.VetControllerTests]: VetControllerTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+08:42:39.607 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.springframework.samples.petclinic.PetClinicApplication for test class org.springframework.samples.petclinic.vet.VetControllerTests
+08:42:39.694 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+
+              |\      _,,,--,,_
+             /,`.-'`'   ._  \-;;,_
+  _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+ |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+ |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+ |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+ |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+ |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+ |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+ ==================================================================/_/_/_/
+
+:: Built with Spring Boot :: 3.5.16
+
+
+2026-10-10T08:42:39.980Z  INFO 92 --- [           main] o.s.s.petclinic.vet.VetControllerTests   : Starting VetControllerTests using Java 17.0.20.1 with PID 92 (started by root in /workspace)
+2026-10-10T08:42:39.981Z  INFO 92 --- [           main] o.s.s.petclinic.vet.VetControllerTests   : No active profile set, falling back to 1 default profile: "default"
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-10-10T08:42:41.576Z  INFO 92 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-10T08:42:41.576Z  INFO 92 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-10T08:42:41.577Z  INFO 92 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-10T08:42:41.598Z  INFO 92 --- [           main] o.s.s.petclinic.vet.VetControllerTests   : Started VetControllerTests in 1.913 seconds (process running for 2.745)
+2026-10-10T08:42:41.994Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.040Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.043Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.045Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.047Z  WARN 92 --- [           main] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][main][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.791 s -- in org.springframework.samples.petclinic.vet.VetControllerTests
+[INFO] Running org.springframework.samples.petclinic.vet.VetTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.114 s -- in org.springframework.samples.petclinic.vet.VetTests
+[INFO] Running org.springframework.samples.petclinic.owner.OwnerControllerTests
+2026-10-10T08:42:42.295Z  INFO 92 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.springframework.samples.petclinic.owner.OwnerControllerTests]: OwnerControllerTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-10T08:42:42.315Z  INFO 92 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.springframework.samples.petclinic.PetClinicApplication for test class org.springframework.samples.petclinic.owner.OwnerControllerTests
+2026-10-10T08:42:42.317Z  INFO 92 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+
+              |\      _,,,--,,_
+             /,`.-'`'   ._  \-;;,_
+  _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+ |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+ |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+ |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+ |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+ |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+ |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+ ==================================================================/_/_/_/
+
+:: Built with Spring Boot :: 3.5.16
+
+
+2026-10-10T08:42:42.333Z  INFO 92 --- [           main] o.s.s.p.owner.OwnerControllerTests       : Starting OwnerControllerTests using Java 17.0.20.1 with PID 92 (started by root in /workspace)
+2026-10-10T08:42:42.334Z  INFO 92 --- [           main] o.s.s.p.owner.OwnerControllerTests       : No active profile set, falling back to 1 default profile: "default"
+2026-10-10T08:42:42.516Z  INFO 92 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-10T08:42:42.517Z  INFO 92 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-10T08:42:42.517Z  INFO 92 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-10-10T08:42:42.520Z  INFO 92 --- [           main] o.s.s.p.owner.OwnerControllerTests       : Started OwnerControllerTests in 0.203 seconds (process running for 3.668)
+2026-10-10T08:42:42.612Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.614Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.615Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.617Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.618Z  WARN 92 --- [           main] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][main][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.646Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.646Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.647Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.648Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.649Z  WARN 92 --- [           main] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][main][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.674Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.675Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.676Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.677Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.677Z  WARN 92 --- [           main] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][main][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.703Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.704Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.704Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.705Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.706Z  WARN 92 --- [           main] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][main][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.712Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.712Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.713Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.714Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.714Z  WARN 92 --- [           main] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][main][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.724Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.724Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.725Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.726Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.726Z  WARN 92 --- [           main] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][main][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.735Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.735Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.736Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.736Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.737Z  WARN 92 --- [           main] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][main][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.749Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.749Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.750Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.751Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.772Z  WARN 92 --- [           main] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][main][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.484 s -- in org.springframework.samples.petclinic.owner.OwnerControllerTests
+[INFO] Running org.springframework.samples.petclinic.owner.PetControllerTests
+2026-10-10T08:42:42.781Z  INFO 92 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.springframework.samples.petclinic.owner.PetControllerTests]: PetControllerTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-10T08:42:42.787Z  INFO 92 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.springframework.samples.petclinic.PetClinicApplication for test class org.springframework.samples.petclinic.owner.PetControllerTests
+2026-10-10T08:42:42.788Z  INFO 92 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+
+              |\      _,,,--,,_
+             /,`.-'`'   ._  \-;;,_
+  _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+ |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+ |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+ |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+ |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+ |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+ |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+ ==================================================================/_/_/_/
+
+:: Built with Spring Boot :: 3.5.16
+
+
+2026-10-10T08:42:42.804Z  INFO 92 --- [           main] o.s.s.p.owner.PetControllerTests         : Starting PetControllerTests using Java 17.0.20.1 with PID 92 (started by root in /workspace)
+2026-10-10T08:42:42.804Z  INFO 92 --- [           main] o.s.s.p.owner.PetControllerTests         : No active profile set, falling back to 1 default profile: "default"
+2026-10-10T08:42:42.919Z  INFO 92 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-10T08:42:42.919Z  INFO 92 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-10T08:42:42.919Z  INFO 92 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-10-10T08:42:42.923Z  INFO 92 --- [           main] o.s.s.p.owner.PetControllerTests         : Started PetControllerTests in 0.135 seconds (process running for 4.07)
+2026-10-10T08:42:42.951Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.952Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.953Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.954Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.955Z  WARN 92 --- [           main] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][main][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.977Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.977Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.978Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.978Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.979Z  WARN 92 --- [           main] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][main][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.984Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.985Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.985Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.986Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.987Z  WARN 92 --- [           main] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][main][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.994Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.994Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.995Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.996Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:42.996Z  WARN 92 --- [           main] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][main][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.219 s -- in org.springframework.samples.petclinic.owner.PetControllerTests
+[INFO] Running org.springframework.samples.petclinic.owner.VisitControllerTests
+2026-10-10T08:42:43.002Z  INFO 92 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.springframework.samples.petclinic.owner.VisitControllerTests]: VisitControllerTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-10T08:42:43.007Z  INFO 92 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.springframework.samples.petclinic.PetClinicApplication for test class org.springframework.samples.petclinic.owner.VisitControllerTests
+2026-10-10T08:42:43.008Z  INFO 92 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+
+              |\      _,,,--,,_
+             /,`.-'`'   ._  \-;;,_
+  _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+ |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+ |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+ |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+ |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+ |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+ |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+ ==================================================================/_/_/_/
+
+:: Built with Spring Boot :: 3.5.16
+
+
+2026-10-10T08:42:43.021Z  INFO 92 --- [           main] o.s.s.p.owner.VisitControllerTests       : Starting VisitControllerTests using Java 17.0.20.1 with PID 92 (started by root in /workspace)
+2026-10-10T08:42:43.021Z  INFO 92 --- [           main] o.s.s.p.owner.VisitControllerTests       : No active profile set, falling back to 1 default profile: "default"
+2026-10-10T08:42:43.117Z  INFO 92 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-10T08:42:43.117Z  INFO 92 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-10T08:42:43.117Z  INFO 92 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-10-10T08:42:43.120Z  INFO 92 --- [           main] o.s.s.p.owner.VisitControllerTests       : Started VisitControllerTests in 0.112 seconds (process running for 4.268)
+2026-10-10T08:42:43.140Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:43.142Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:43.142Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:43.143Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:43.144Z  WARN 92 --- [           main] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][main][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:43.153Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:43.154Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:43.154Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:43.155Z  WARN 92 --- [           main] actStandardFragmentInsertionTagProcessor : [THYMELEAF][main][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:43.168Z  WARN 92 --- [           main] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][main][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.171 s -- in org.springframework.samples.petclinic.owner.VisitControllerTests
+[INFO] Running org.springframework.samples.petclinic.owner.PetTypeFormatterTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in org.springframework.samples.petclinic.owner.PetTypeFormatterTests
+[INFO] Running org.springframework.samples.petclinic.system.CrashControllerTests
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s -- in org.springframework.samples.petclinic.system.CrashControllerTests
+[INFO] Running org.springframework.samples.petclinic.model.ValidatorTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in org.springframework.samples.petclinic.model.ValidatorTests
+[INFO] Running org.springframework.samples.petclinic.service.ClinicServiceTests
+2026-10-10T08:42:43.207Z  INFO 92 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.springframework.samples.petclinic.service.ClinicServiceTests]: ClinicServiceTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-10T08:42:43.221Z  INFO 92 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.springframework.samples.petclinic.PetClinicApplication for test class org.springframework.samples.petclinic.service.ClinicServiceTests
+2026-10-10T08:42:43.222Z  INFO 92 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+
+              |\      _,,,--,,_
+             /,`.-'`'   ._  \-;;,_
+  _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+ |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+ |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+ |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+ |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+ |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+ |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+ ==================================================================/_/_/_/
+
+:: Built with Spring Boot :: 3.5.16
+
+
+2026-10-10T08:42:43.238Z  INFO 92 --- [           main] o.s.s.p.service.ClinicServiceTests       : Starting ClinicServiceTests using Java 17.0.20.1 with PID 92 (started by root in /workspace)
+2026-10-10T08:42:43.238Z  INFO 92 --- [           main] o.s.s.p.service.ClinicServiceTests       : No active profile set, falling back to 1 default profile: "default"
+2026-10-10T08:42:43.360Z  INFO 92 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-10T08:42:43.407Z  INFO 92 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 2 JPA repository interfaces.
+2026-10-10T08:42:43.483Z  INFO 92 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-10T08:42:43.708Z  INFO 92 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:b83162f4-2d87-4c5f-aad1-646123484a8a user=SA
+2026-10-10T08:42:43.709Z  INFO 92 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-10T08:42:43.802Z  INFO 92 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-10-10T08:42:43.851Z  INFO 92 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.53.Final
+2026-10-10T08:42:43.879Z  INFO 92 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-10-10T08:42:43.982Z  INFO 92 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-10T08:42:44.061Z  INFO 92 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-10T08:42:44.750Z  INFO 92 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-10T08:42:44.752Z  INFO 92 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-10T08:42:44.897Z  INFO 92 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-10T08:42:45.215Z  INFO 92 --- [           main] o.s.s.p.service.ClinicServiceTests       : Started ClinicServiceTests in 1.993 seconds (process running for 6.362)
+Hibernate: select v1_0.id,v1_0.first_name,v1_0.last_name from vets v1_0
+Hibernate: select s1_0.vet_id,s1_1.id,s1_1.name from vet_specialties s1_0 join specialties s1_1 on s1_1.id=s1_0.specialty_id where s1_0.vet_id=?
+Hibernate: select s1_0.vet_id,s1_1.id,s1_1.name from vet_specialties s1_0 join specialties s1_1 on s1_1.id=s1_0.specialty_id where s1_0.vet_id=?
+Hibernate: select s1_0.vet_id,s1_1.id,s1_1.name from vet_specialties s1_0 join specialties s1_1 on s1_1.id=s1_0.specialty_id where s1_0.vet_id=?
+Hibernate: select s1_0.vet_id,s1_1.id,s1_1.name from vet_specialties s1_0 join specialties s1_1 on s1_1.id=s1_0.specialty_id where s1_0.vet_id=?
+Hibernate: select s1_0.vet_id,s1_1.id,s1_1.name from vet_specialties s1_0 join specialties s1_1 on s1_1.id=s1_0.specialty_id where s1_0.vet_id=?
+Hibernate: select s1_0.vet_id,s1_1.id,s1_1.name from vet_specialties s1_0 join specialties s1_1 on s1_1.id=s1_0.specialty_id where s1_0.vet_id=?
+Hibernate: select distinct o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.last_name like ? escape ''
+Hibernate: select p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,t1_0.id,t1_0.name from pets p1_0 left join types t1_0 on t1_0.id=p1_0.type_id where p1_0.owner_id=? order by p1_0.name
+Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+Hibernate: select p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,t1_0.id,t1_0.name from pets p1_0 left join types t1_0 on t1_0.id=p1_0.type_id where p1_0.owner_id=? order by p1_0.name
+Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+Hibernate: select distinct o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.last_name like ? escape ''
+Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 where pt1_0.id=?
+Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+Hibernate: insert into visits (visit_date,description,id) values (?,?,default)
+Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 where pt1_0.id=?
+Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+Hibernate: update owners set address=?,city=?,first_name=?,last_name=?,telephone=? where id=?
+Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 where pt1_0.id=?
+Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 where pt1_0.id=?
+Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 order by pt1_0.name
+Hibernate: insert into pets (birth_date,name,type_id,id) values (?,?,?,default)
+Hibernate: update pets set owner_id=? where id=?
+Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+Hibernate: select distinct o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.last_name like ? escape ''
+Hibernate: insert into owners (address,city,first_name,last_name,telephone,id) values (?,?,?,?,?,default)
+Hibernate: select distinct o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.last_name like ? escape ''
+Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 where pt1_0.id=?
+Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 where pt1_0.id=?
+Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+Hibernate: update pets set birth_date=?,name=?,type_id=? where id=?
+Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 order by pt1_0.name
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.247 s -- in org.springframework.samples.petclinic.service.ClinicServiceTests
+[INFO] Running org.springframework.samples.petclinic.PetClinicIntegrationTests
+2026-10-10T08:42:45.457Z  INFO 92 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.springframework.samples.petclinic.PetClinicIntegrationTests]: PetClinicIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-10T08:42:45.472Z  INFO 92 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.springframework.samples.petclinic.PetClinicApplication for test class org.springframework.samples.petclinic.PetClinicIntegrationTests
+2026-10-10T08:42:45.475Z  INFO 92 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+
+              |\      _,,,--,,_
+             /,`.-'`'   ._  \-;;,_
+  _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+ |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+ |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+ |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+ |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+ |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+ |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+ ==================================================================/_/_/_/
+
+:: Built with Spring Boot :: 3.5.16
+
+
+2026-10-10T08:42:45.492Z  INFO 92 --- [           main] o.s.s.p.PetClinicIntegrationTests        : Starting PetClinicIntegrationTests using Java 17.0.20.1 with PID 92 (started by root in /workspace)
+2026-10-10T08:42:45.492Z  INFO 92 --- [           main] o.s.s.p.PetClinicIntegrationTests        : No active profile set, falling back to 1 default profile: "default"
+2026-10-10T08:42:45.749Z  INFO 92 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-10T08:42:45.756Z  INFO 92 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 2 JPA repository interfaces.
+2026-10-10T08:42:45.926Z  INFO 92 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-10-10T08:42:45.936Z  INFO 92 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-10T08:42:45.936Z  INFO 92 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-10-10T08:42:45.965Z  INFO 92 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-10-10T08:42:45.965Z  INFO 92 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 473 ms
+2026-10-10T08:42:46.165Z  INFO 92 --- [           main] org.ehcache.jsr107.Eh107CacheManager     : Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=urn.X-ehcache.jsr107-default-config,Cache=vets
+2026-10-10T08:42:46.166Z  INFO 92 --- [           main] org.ehcache.core.EhcacheManager          : Cache 'vets' created in EhcacheManager.
+2026-10-10T08:42:46.172Z  INFO 92 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-10-10T08:42:46.174Z  INFO 92 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:f4920118-ab37-4043-9aab-4bb283fc25a2 user=SA
+2026-10-10T08:42:46.174Z  INFO 92 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-10-10T08:42:46.191Z  INFO 92 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-10-10T08:42:46.193Z  INFO 92 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-10-10T08:42:46.198Z  INFO 92 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-10T08:42:46.199Z  INFO 92 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-10T08:42:46.228Z  INFO 92 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-10T08:42:46.228Z  INFO 92 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-10T08:42:46.438Z  INFO 92 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 13 endpoints beneath base path '/actuator'
+2026-10-10T08:42:46.544Z  INFO 92 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 41875 (http) with context path '/'
+2026-10-10T08:42:46.548Z  INFO 92 --- [           main] o.s.s.p.PetClinicIntegrationTests        : Started PetClinicIntegrationTests in 1.073 seconds (process running for 7.696)
+2026-10-10T08:42:46.681Z  INFO 92 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-10T08:42:46.682Z  INFO 92 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-10T08:42:46.682Z  INFO 92 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-10-10T08:42:46.707Z  WARN 92 --- [o-auto-1-exec-1] actStandardFragmentInsertionTagProcessor : [THYMELEAF][http-nio-auto-1-exec-1][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/','home','home page','home','Home')" found in template fragments/layout, line 48, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/','home','home page','home','Home')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:46.708Z  WARN 92 --- [o-auto-1-exec-1] actStandardFragmentInsertionTagProcessor : [THYMELEAF][http-nio-auto-1-exec-1][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/owners/find','owners','find owners','search','Find owners')" found in template fragments/layout, line 53, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:46.710Z  WARN 92 --- [o-auto-1-exec-1] actStandardFragmentInsertionTagProcessor : [THYMELEAF][http-nio-auto-1-exec-1][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')" found in template fragments/layout, line 58, col 15. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:46.711Z  WARN 92 --- [o-auto-1-exec-1] actStandardFragmentInsertionTagProcessor : [THYMELEAF][http-nio-auto-1-exec-1][fragments/layout] Deprecated unwrapped fragment expression "::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')" found in template fragments/layout, line 64, col 13. Please use the complete syntax of fragment expressions instead ("~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','exclamation-triangle','Error')}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2026-10-10T08:42:46.711Z  WARN 92 --- [o-auto-1-exec-1] o.t.s.p.StandardIncludeTagProcessor      : [THYMELEAF][http-nio-auto-1-exec-1][fragments/layout] Deprecated attribute {th:include,data-th-include} found in template fragments/layout, line 76, col 17. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.270 s -- in org.springframework.samples.petclinic.PetClinicIntegrationTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 1
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  12.193 s
+[INFO] Finished at: 2026-10-10T08:42:47Z
+[INFO] ------------------------------------------------------------------------

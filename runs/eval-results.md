@@ -9,3 +9,4 @@
 | eladmin | HYBRID_NO_CASCADE | true (0 tests) | 0 | 166 | false | 0/0/0 | true | 10 | 60 | 94735/8571 | 1049 | 0 | budget_exhausted |
 | spring-petclinic | LLM_ONLY | true (41 tests) | n/a | n/a | false | 41/0/0 | true | 0 | 0 | 0/0 | 35 | 0 | success |
 | spring-petclinic | HYBRID_NO_TRIAGE | true (41 tests) | 0 | 23 | true | 41/0/0 | true | 0 | 0 | 0/0 | 1164 | 0 | n/a |
+| spring-petclinic | HYBRID_NO_CASCADE | true (41 tests) | 0 | 23 | true | 41/0/0 | true | 0 | 0 | 0/0 | 852 | 0 | n/a |
