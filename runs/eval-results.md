@@ -7,3 +7,4 @@
 | eladmin | LLM_ONLY | true (0 tests) | n/a | n/a | false | 0/0/0 | true | 10 | 8 | 17754/2347 | 667 | 0 | unresolved |
 | eladmin | HYBRID_NO_TRIAGE | true (0 tests) | 0 | 166 | false | 0/0/0 | true | 10 | 7 | 13021/961 | 871 | 0 | unresolved |
 | eladmin | HYBRID_NO_CASCADE | true (0 tests) | 0 | 166 | false | 0/0/0 | true | 10 | 60 | 94735/8571 | 1049 | 0 | budget_exhausted |
+| spring-petclinic | LLM_ONLY | true (41 tests) | n/a | n/a | false | 41/0/0 | true | 0 | 0 | 0/0 | 35 | 0 | success |

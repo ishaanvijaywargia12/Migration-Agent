@@ -21,6 +21,7 @@ import io.migrationagent.eval.TraceAnalyzer;
 import io.migrationagent.rewrite.GitDiffSummarizer;
 import io.migrationagent.rewrite.RepoDiff;
 import io.migrationagent.rewrite.SpringBootMigrationRecipe;
+import io.migrationagent.rewrite.SpringBootVersionDetector;
 import io.migrationagent.sandbox.RepoCheckout;
 import io.migrationagent.sandbox.SandboxResult;
 import io.migrationagent.sandbox.SandboxRunner;
@@ -136,6 +137,15 @@ final class EvaluateCommand implements Callable<Integer> {
                 System.out.println("Recipe did not complete successfully.");
                 preAgentBuild = baselineBuild;
             }
+        } else {
+            // No recipe is applied in LLM_ONLY, but the agent loop still targets
+            // TARGET_JDK — reusing the JDK-8 baselineBuild here would let a repo
+            // whose untouched code already compiles/passes look "already resolved"
+            // before the loop ever runs, without ever having attempted JDK 17 or a
+            // Boot 3 dependency. Building on TARGET_JDK first forces a real signal.
+            System.out.println("Running pre-agent build on JDK " + TARGET_JDK + " (no recipe applied, LLM_ONLY)...");
+            preAgentBuild = BuildAndTestStep.run(
+                    runner, workspace, TARGET_JDK, buildTimeout, runDir.resolve("after-rewrite-build-output.log"));
         }
 
         BuildResult finalBuild = preAgentBuild;
@@ -176,11 +186,20 @@ final class EvaluateCommand implements Callable<Integer> {
         boolean testsPreserved = finalBuild.testsTotal() >= baselineBuild.testsTotal()
                 && finalBuild.testsSkipped() <= baselineBuild.testsSkipped();
 
+        // A clean build/test pass alone can't distinguish "migrated to Boot 3"
+        // from "old Boot 2.7 code happened to still compile on JDK 17 without
+        // migrating at all" — only matters for ablations that can skip the
+        // OpenRewrite recipe entirely (LLM_ONLY), but checked unconditionally
+        // for consistency; every other mode already bumps this via the recipe.
+        String finalPomXml = Files.readString(workspace.resolve("pom.xml"));
+        boolean actuallyOnBoot3 = new SpringBootVersionDetector().isBoot3OrHigher(finalPomXml);
+        boolean finalResolved = AgentLoop.isResolved(finalBuild) && actuallyOnBoot3;
+
         EvalResult result = new EvalResult(
                 repoName, ablation,
                 baselineBuild.compiled(), baselineBuild.testsTotal(),
                 recipeExitCode, filesChanged,
-                AgentLoop.isResolved(finalBuild), finalBuild.compiled(),
+                finalResolved, finalBuild.compiled(),
                 finalBuild.testsTotal(), finalBuild.testsFailed(), finalBuild.testsErrored(),
                 testsPreserved,
                 traceSummary.iterationsCompleted(), traceSummary.totalModelCalls(),
