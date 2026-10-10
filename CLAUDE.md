@@ -330,13 +330,29 @@ tests across the whole reactor now, all passing, zero Docker/network needed.
   numbers and the two bugs this run caught (above).
 
 **Phase 6 (eval harness, ablations, README)**: eval harness implemented and
-unit-tested (117 tests across the whole reactor now). `OPENREWRITE_ONLY` has
-now been run for real against both benchmark repos (zero API cost, pure
-Docker time); the LLM-involving ablations (`LLM_ONLY`, `HYBRID`,
-`HYBRID_NO_TRIAGE`, `HYBRID_NO_CASCADE`) have not — see `runs/eval-results.md`
-for the two recorded rows. **README still not written** — it waits for at
-least one real hybrid-mode run before there's anything meaningful to compare
-against openrewrite-only.
+unit-tested (120 tests across the whole reactor now). Both benchmark repos
+now have the full 5-mode ablation matrix run for real (`OPENREWRITE_ONLY`,
+`HYBRID`, `LLM_ONLY`, `HYBRID_NO_TRIAGE`, `HYBRID_NO_CASCADE`) — see
+`runs/eval-results.md` for all 12 recorded rows. **README written** (see
+[README.md](README.md)), built entirely from these recorded numbers.
+- **Real bug found running spring-petclinic's `LLM_ONLY`**: the eval
+  harness handed the agent loop the *untouched* JDK-8 baseline build result
+  for this ablation (since it skips the OpenRewrite recipe entirely), and
+  since that baseline already compiled with all tests passing,
+  `AgentLoop.isResolved()` short-circuited at 0 iterations and reported a
+  false "success" — without the repo ever touching Spring Boot 3 or JDK 17.
+  Caught by noticing the run finished suspiciously fast (19s vs. 600-1000s+
+  for every other real run) rather than trusting a clean-looking result at
+  face value. Fixed two layers deep: `EvaluateCommand` now builds the
+  untouched repo on the target JDK before the loop runs for `LLM_ONLY`
+  (instead of reusing the stale JDK-8 result) — insufficient alone, since
+  Boot 2.7 code frequently still compiles fine on JDK 17 without migrating
+  — so also added `SpringBootVersionDetector` (text-scan `pom.xml` for the
+  parent version, same deliberate-simplicity pattern as
+  `DeclaredJdkDetector`) and gated the reported `resolved` field on it
+  actually finding a Boot 3.x+ parent. Applied to all ablation modes for
+  consistency, though only `LLM_ONLY` could trigger the false positive.
+  Re-run for real after the fix: `resolved=false`, now an honest result.
 - **Real bug found running these evals**: `TestcontainersSandboxRunner`'s
   diagnostic log file (`.sandbox-live-output.log`, added during Phase 3/5 to
   capture partial output on a sandbox timeout — see the eladmin

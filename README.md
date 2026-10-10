@@ -94,7 +94,31 @@ projected or rounded up.
 | Agent loop needed? | No — recipe alone fully resolved it |
 
 A complete, deterministic-only Boot 2.7.3 → 3.5.x migration with no LLM
-involvement at all, and no test regression.
+involvement at all, and no test regression. This holds across the full
+5-mode ablation matrix — OpenRewrite's recipe alone is simply sufficient
+for this repo, so the agent loop never has anything left to do:
+
+| Ablation | Resolved | Files changed | Model calls | Wall clock (s) |
+|---|---|---|---|---|
+| `OPENREWRITE_ONLY` | true | 22 | 0 | 789 |
+| `HYBRID` | true | 23 | 0 | 826 |
+| `LLM_ONLY` (no recipe at all) | **false** | n/a | 0 | 35 |
+| `HYBRID_NO_TRIAGE` | true | 23 | 0 | 1164 |
+| `HYBRID_NO_CASCADE` (single tier, no escalation) | true | 23 | 0 | 852 |
+
+`LLM_ONLY` correctly reports `false` here, and that result is more
+interesting than it looks: catching it required fixing a real bug first.
+The eval harness originally handed the agent loop the *untouched* JDK-8
+baseline — which already compiled with all tests passing — so it
+short-circuited at 0 iterations and reported a false "success" without
+the repo ever touching Spring Boot 3 or JDK 17 at all. Caught by noticing
+the run finished suspiciously fast (19s vs. 600–1000s+ for every other
+real run) rather than trusting a clean-looking result. Fixed by (1)
+actually building the untouched repo on the target JDK before the loop
+runs, and (2) adding a real check — `SpringBootVersionDetector` — that
+the final `pom.xml` actually declares a Boot 3.x+ parent, since a clean
+build/test pass alone can't tell "migrated" apart from "old code happened
+to still run fine on a newer JDK."
 
 ### eladmin (Boot 2.7.18 → 3.5.x, multi-module reactor)
 
@@ -125,18 +149,14 @@ genuinely hard migration, not a bug to hide.
 
 ### What's not done yet
 
-- `README` numbers above only use eladmin's full 5-mode ablation matrix —
-  spring-petclinic currently only has `OPENREWRITE_ONLY` and `HYBRID`
-  recorded; `LLM_ONLY`, `HYBRID_NO_TRIAGE`, and `HYBRID_NO_CASCADE` haven't
-  been run for it yet (each costs real Docker time and, for the LLM modes,
-  real free-tier API spend).
 - Only two benchmark repos so far.
 - JaCoCo coverage comparison in `PostSuccessVerifier` is intentionally not
   implemented (no report parser exists for it) rather than faked.
 
 ## Project status
 
-Phases 0–6 are implemented and unit-tested (117 tests, zero Docker/network
-needed for `./mvnw test`). See [CLAUDE.md](CLAUDE.md) for the detailed,
-phase-by-phase history — including every real bug a live run caught and how
-it was fixed, not just the final working state.
+Phases 0–6 are implemented and unit-tested (120 tests, zero Docker/network
+needed for `./mvnw test`). Both benchmark repos now have the full 5-mode
+ablation matrix recorded for real. See [CLAUDE.md](CLAUDE.md) for the
+detailed, phase-by-phase history — including every real bug a live run
+caught and how it was fixed, not just the final working state.
